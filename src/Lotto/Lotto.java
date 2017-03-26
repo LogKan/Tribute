@@ -1,11 +1,13 @@
 package Lotto;
 
+import com.sun.media.jfxmedia.logging.Logger;
+
 import Lotto.Source.Controller;
 import Lotto.Source.Model;
+import Lotto.Source.ServiceLocator;
 import Lotto.Source.View;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import Lotto.Source.*;
 
 public class Lotto extends Application {
 
