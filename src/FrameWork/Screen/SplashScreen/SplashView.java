@@ -1,6 +1,6 @@
-package SplashScreen;
+package FrameWork.Screen.SplashScreen;
 
-import Source.View;
+import FrameWork.Source.View;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;

@@ -1,10 +1,10 @@
-package Source;
+package FrameWork.Source;
 
 import java.util.Locale;
 import java.util.logging.Logger;
 
-import Source.Configuration;
-import Source.Translator;
+import FrameWork.Source.Configuration;
+import FrameWork.Source.Translator;
 
 /**
  * Copyright 2015, FHNW, Prof. Dr. Brad Richards. All rights reserved. This code

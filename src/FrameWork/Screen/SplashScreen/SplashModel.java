@@ -1,6 +1,6 @@
-package SplashScreen;
+package FrameWork.Screen.SplashScreen;
 
-import Source.Model;
+import FrameWork.Source.Model;
 
 public class SplashModel extends Model {
 

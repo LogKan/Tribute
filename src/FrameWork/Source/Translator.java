@@ -1,11 +1,11 @@
-package Source;
+package FrameWork.Source;
 
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-import Source.ServiceLocator;
+import FrameWork.Source.ServiceLocator;
 
 public class Translator {
     private ServiceLocator sl = ServiceLocator.getServiceLocator();
