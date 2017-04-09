@@ -62,6 +62,7 @@ public class LottoClientApp extends Application {
 	}
 	
 	 public void stop() {
+		 //serviceLocator.getConfiguration().save();
 	        if (view != null) {
 	            // Make the view invisible
 	            view.stop();

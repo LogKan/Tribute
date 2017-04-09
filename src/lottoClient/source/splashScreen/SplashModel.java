@@ -64,7 +64,7 @@ public class SplashModel extends Model{
 	     */
 	    private Logger configureLogging() {
 	        Logger rootLogger = Logger.getLogger("");
-	        rootLogger.setLevel(Level.INFO);
+	        rootLogger.setLevel(Level.FINEST);
 
 	        // By default there is one handler: the console
 	        Handler[] defaultHandlers = Logger.getLogger("").getHandlers();
@@ -72,13 +72,13 @@ public class SplashModel extends Model{
 
 	        // Add our logger
 	        Logger ourLogger = Logger.getLogger(serviceLocator.getAPP_NAME());
-	        ourLogger.setLevel(Level.INFO);
+	        ourLogger.setLevel(Level.FINEST);
 	        
 	        // Add a file handler, putting the rotating files in the tmp directory
 	        try {
 	            Handler logHandler = new FileHandler(serviceLocator.getAPP_NAME()+".log",
 	                    1000000, 9);
-	            logHandler.setLevel(Level.INFO);
+	            logHandler.setLevel(Level.FINEST);
 	            ourLogger.addHandler(logHandler);
 	        } catch (Exception e) { // If we are unable to create log files
 	            throw new RuntimeException("Unable to initialize log files: "
