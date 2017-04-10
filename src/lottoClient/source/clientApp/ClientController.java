@@ -13,7 +13,7 @@ public class ClientController extends Controller<ClientModel, ClientView> {
 		super(model, view);
 		
 		serviceLocator = serviceLocator.getServiceLocator();
-		view.l1.setText("Test");
+		view.l1.setText(serviceLocator.getConfiguration().getOption("User"));
 		
 		view.b1.setOnAction(Event -> {
 			serviceLocator.getConfiguration().save();

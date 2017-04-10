@@ -5,9 +5,12 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 import javafx.concurrent.Task;
 import lottoClient.source.abstractClasses.Model;
+import lottoClient.source.commonClasses.Configuration;
 import lottoClient.source.commonClasses.ServiceLocator;
+import lottoClient.source.commonClasses.Translator;
 
 /**
  * Copyright 2015, FHNW, Prof. Dr. Brad Richards. All rights reserved. This code
@@ -27,14 +30,27 @@ public class SplashModel extends Model{
 	 final Task<Void> initializer = new Task<Void>() {
 		@Override
 		protected Void call() throws Exception {
-			this.updateProgress(1, 4);
+			this.updateProgress(1, 7);
 			// Methoden und Werte welche bearbeitet werden sollten im loading werden hier eingetragen!!
 			
 			serviceLocator = ServiceLocator.getServiceLocator();
-			this.updateProgress(2, 4);
+			this.updateProgress(2, 7);
 			
 			serviceLocator.setLogger(configureLogging());
-			this.updateProgress(3, 4);
+			this.updateProgress(3, 7);
+			
+			serviceLocator.setConfiguration(new Configuration());
+            this.updateProgress(4,  7);
+
+            String language = serviceLocator.getConfiguration().getOption("Language");
+            // Logging für die Sprache
+            Logger log = serviceLocator.getLogger();
+            log.config(language);
+            serviceLocator.setTranslator(new Translator(language));
+            this.updateProgress(5,  7);
+            
+            // ... more resources would go here...
+            this.updateProgress(6,  7);
 
 			// Beispielsschlaufe
 			 Integer i = 0;
@@ -42,7 +58,7 @@ public class SplashModel extends Model{
 	                if ((i % 1000000) == 0)
 	                    this.updateProgress(i, 1000000000);
 	            }			
-	            this.updateProgress(4, 4);
+	            this.updateProgress(7, 7);
 	            return null;
 		}
 		 

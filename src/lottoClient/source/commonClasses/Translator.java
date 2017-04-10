@@ -12,7 +12,7 @@ public class Translator {
 	protected Locale currentLocale;
 	private ResourceBundle resourceBundle;
 	
-	protected Translator(String localeString){
+	public Translator(String localeString){
 		Locale locale = Locale.getDefault();
 		if (localeString != null) {
 			Locale[] availableLocales = serviceLocator.getLocales();
