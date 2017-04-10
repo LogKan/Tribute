@@ -41,11 +41,9 @@ public class SplashModel extends Model{
 			
 			serviceLocator.setConfiguration(new Configuration());
             this.updateProgress(4,  7);
-
-            String language = serviceLocator.getConfiguration().getOption("Language");
+ 
             // Logging für die Sprache
-            Logger log = serviceLocator.getLogger();
-            log.config(language);
+            String language = serviceLocator.getConfiguration().getOption("Language");
             serviceLocator.setTranslator(new Translator(language));
             this.updateProgress(5,  7);
             
@@ -53,11 +51,11 @@ public class SplashModel extends Model{
             this.updateProgress(6,  7);
 
 			// Beispielsschlaufe
-			 Integer i = 0;
-	            for (; i < 1000000000; i++) {
-	                if ((i % 1000000) == 0)
-	                    this.updateProgress(i, 1000000000);
-	            }			
+			// Integer i = 0;
+	          //  for (; i < 1000000000; i++) {
+	            //    if ((i % 1000000) == 0)
+	              //      this.updateProgress(i, 1000000000);
+	           // }			
 	            this.updateProgress(7, 7);
 	            return null;
 		}

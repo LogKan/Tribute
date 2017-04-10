@@ -39,7 +39,7 @@ public class ServiceLocator {
     } 
 
     private ServiceLocator() {
-        // Standart kunstruktur ohne Inhalt. public führ den Zugriff
+        // Standart kunstruktur 
     }
     
     public Class<?> getAPP_CLASS() {

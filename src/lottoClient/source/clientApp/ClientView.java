@@ -1,5 +1,7 @@
 package lottoClient.source.clientApp;
 
+import java.util.logging.Logger;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,6 +12,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import lottoClient.source.abstractClasses.View;
+import lottoClient.source.commonClasses.ServiceLocator;
+import lottoClient.source.commonClasses.Translator;
 
 public class ClientView extends View<ClientModel> {
 	
@@ -26,10 +30,15 @@ public class ClientView extends View<ClientModel> {
 
 	@Override
 	protected Scene createGUI() {
+		ServiceLocator serviceLocator = ServiceLocator.getServiceLocator();
+		Logger logger = serviceLocator.getLogger();
+		Translator translator = serviceLocator.getTranslator();
+		
+		
 		
 		BorderPane root = new BorderPane();
-		l1 = new Label();
-		b1= new Button("Save");
+		l1 = new Label("");
+		b1= new Button("programm.menu.file");
 		b2= new Button("de");
 		b3= new Button("en");
 		root.setBottom(l1);
