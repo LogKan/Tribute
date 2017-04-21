@@ -32,6 +32,18 @@ public class ClientController extends Controller<ClientModel, ClientView> {
 			view.updateTexts();
 		});
 		
+		view.windowSize.setOnAction(Event -> {
+			view.setSize();
+			view.updateTexts();
+		});
+		
+		view.fileExit.setOnAction(Event -> {
+			serviceLocator.getConfiguration().setLocalOption("Language", serviceLocator.getTranslator().getCurrentLocale().getLanguage());
+			serviceLocator.getConfiguration().save();
+			view.stop();
+			
+		});
+		
 	}
 
 

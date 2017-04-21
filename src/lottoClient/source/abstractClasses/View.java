@@ -1,9 +1,15 @@
 package lottoClient.source.abstractClasses;
 
+import java.util.logging.Logger;
+
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lottoClient.source.commonClasses.ServiceLocator;
 
 public abstract class View<M extends Model> {
+	
+	ServiceLocator serviceLocator;
+	
 	protected Stage stage;
 	protected Scene scene;
 	protected M model;
@@ -28,6 +34,19 @@ public abstract class View<M extends Model> {
 	
 	public Stage getStage(){
 		return stage;
+	}
+	
+	public void setSize(){
+		if(stage.isFullScreen() == false) {
+			stage.setFullScreen(true);
+		} else {
+			stage.setFullScreen(false);
+		}
+	}
+	
+	// true or false
+	public boolean getFullScreen(){
+		return stage.isFullScreen();
 	}
 	
 	

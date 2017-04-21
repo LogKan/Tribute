@@ -21,6 +21,11 @@ public class ClientView extends View<ClientModel> {
 	public Button b1;
 	public Button b2;
 	public Button b3;
+	public Menu file;
+	public MenuItem fileProperties;
+	public MenuItem fileExit;
+	public Menu window;
+	public MenuItem windowSize;
 	
 
 	public ClientView(Stage stage, ClientModel model) {
@@ -34,13 +39,31 @@ public class ClientView extends View<ClientModel> {
 		Logger logger = serviceLocator.getLogger();
 		Translator translator = serviceLocator.getTranslator();
 		
-		
-		
 		BorderPane root = new BorderPane();
 		l1 = new Label(translator.getString("programm.menu.file"));
 		b1= new Button("save");
 		b2= new Button("de");
 		b3= new Button("en");
+		
+		MenuBar menuBar = new MenuBar();
+		file = new Menu(translator.getString("programm.menu.file"));
+		fileProperties = new MenuItem(translator.getString("programm.menu.file.properties"));
+		fileExit = new MenuItem(translator.getString("programm.menu.file.exit"));
+		
+		window = new Menu(translator.getString("programm.menu.window"));
+		windowSize = new MenuItem();
+		if (stage.isFullScreen() == false)
+		{
+			windowSize.setText(translator.getString("programm.menu.window.fullScreen"));
+		} else {
+			windowSize.setText(translator.getString("programm.menu.window.minimizeScreen"));
+		}
+		
+		file.getItems().addAll(fileProperties,fileExit);
+		window.getItems().addAll(windowSize);
+		menuBar.getMenus().addAll(file, window);
+		
+		root.setTop(menuBar);
 		root.setBottom(l1);
 		HBox hBox = new HBox();
 		hBox.getChildren().addAll(b1,b2,b3);
@@ -55,7 +78,16 @@ public class ClientView extends View<ClientModel> {
 
 		// The menu entries
 		l1.setText(translator.getString("programm.menu.file"));
-		
+		file.setText(translator.getString("programm.menu.file"));
+		fileProperties.setText(translator.getString("programm.menu.file.properties"));
+		fileExit.setText(translator.getString("programm.menu.file.exit"));
+		window.setText(translator.getString("programm.menu.window"));
+		if (stage.isFullScreen() == false)
+		{
+			windowSize.setText(translator.getString("programm.menu.window.fullScreen"));
+		} else {
+			windowSize.setText(translator.getString("programm.menu.window.minimizeScreen"));
+		}
 	}
 
 }
