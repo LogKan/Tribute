@@ -2,47 +2,47 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-04-10T19:17:08</date>
-  <millis>1491844628802</millis>
-  <sequence>16</sequence>
+  <date>2017-04-11T19:47:18</date>
+  <millis>1491932838089</millis>
+  <sequence>1</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
   <method>&lt;init&gt;</method>
-  <thread>18</thread>
+  <thread>17</thread>
   <message>Default configuration file found</message>
 </record>
 <record>
-  <date>2017-04-10T19:17:08</date>
-  <millis>1491844628825</millis>
+  <date>2017-04-11T19:47:18</date>
+  <millis>1491932838202</millis>
   <sequence>17</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
   <method>&lt;init&gt;</method>
-  <thread>18</thread>
+  <thread>17</thread>
   <message>Default: Language = en</message>
 </record>
 <record>
-  <date>2017-04-10T19:17:08</date>
-  <millis>1491844628828</millis>
+  <date>2017-04-11T19:47:18</date>
+  <millis>1491932838206</millis>
   <sequence>18</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
   <method>&lt;init&gt;</method>
-  <thread>18</thread>
+  <thread>17</thread>
   <message>Default: User = anonymous</message>
 </record>
 <record>
-  <date>2017-04-10T19:17:12</date>
-  <millis>1491844632679</millis>
-  <sequence>2884</sequence>
+  <date>2017-04-11T19:47:18</date>
+  <millis>1491932838211</millis>
+  <sequence>19</sequence>
   <logger>LottoClientApp</logger>
-  <level>INFO</level>
-  <class>lottoClient.LottoClientApp</class>
-  <method>startApp</method>
-  <thread>14</thread>
-  <message>Client App Start</message>
+  <level>CONFIG</level>
+  <class>lottoClient.source.commonClasses.Configuration</class>
+  <method>&lt;init&gt;</method>
+  <thread>17</thread>
+  <message>Option: Language = de</message>
 </record>
 </log>

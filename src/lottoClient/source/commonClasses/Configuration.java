@@ -70,9 +70,12 @@ public class Configuration {
 		FileOutputStream propFile = null;
 		try {
 			propFile = new FileOutputStream(servicelocator.getAPP_NAME()+".cfg");
+			localOptions.store(propFile, null);
 			logger.config("Local configuration file saved");
 		} catch (FileNotFoundException e) {
 			logger.warning("Unable to save local options: " + e.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
 		} finally {
 			if (propFile != null) {
 				try {

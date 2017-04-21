@@ -49,14 +49,14 @@ public class SplashModel extends Model{
             
             // ... more resources would go here...
             this.updateProgress(6,  7);
-
+/**
 			// Beispielsschlaufe
-			// Integer i = 0;
-	          //  for (; i < 1000000000; i++) {
-	            //    if ((i % 1000000) == 0)
-	              //      this.updateProgress(i, 1000000000);
-	           // }			
-	            this.updateProgress(7, 7);
+			Integer i = 0;
+	          for (; i < 1000000000; i++) {
+	            if ((i % 1000000) == 0)
+	              this.updateProgress(i, 1000000000);
+	            }			
+	            this.updateProgress(7, 7); **/
 	            return null;
 		}
 		 
@@ -90,7 +90,7 @@ public class SplashModel extends Model{
 	        
 	        // Add a file handler, putting the rotating files in the tmp directory
 	        try {
-	            Handler logHandler = new FileHandler(serviceLocator.getAPP_NAME()+".log",
+	            Handler logHandler = new FileHandler(serviceLocator.getAPP_NAME() + "_%u" + "_%g" + ".log",
 	                    1000000, 9);
 	            logHandler.setLevel(Level.FINEST);
 	            ourLogger.addHandler(logHandler);

@@ -2,47 +2,47 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-04-10T22:08:31</date>
-  <millis>1491854911991</millis>
-  <sequence>16</sequence>
+  <date>2017-04-11T19:29:50</date>
+  <millis>1491931790633</millis>
+  <sequence>4</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
   <method>&lt;init&gt;</method>
-  <thread>18</thread>
+  <thread>17</thread>
   <message>Default configuration file found</message>
 </record>
 <record>
-  <date>2017-04-10T22:08:32</date>
-  <millis>1491854912013</millis>
-  <sequence>17</sequence>
-  <logger>LottoClientApp</logger>
-  <level>CONFIG</level>
-  <class>lottoClient.source.commonClasses.Configuration</class>
-  <method>&lt;init&gt;</method>
-  <thread>18</thread>
-  <message>Default: Language = en</message>
-</record>
-<record>
-  <date>2017-04-10T22:08:32</date>
-  <millis>1491854912015</millis>
+  <date>2017-04-11T19:29:50</date>
+  <millis>1491931790735</millis>
   <sequence>18</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
   <method>&lt;init&gt;</method>
-  <thread>18</thread>
-  <message>Default: User = anonymous</message>
+  <thread>17</thread>
+  <message>Default: Language = en</message>
 </record>
 <record>
-  <date>2017-04-10T22:08:32</date>
-  <millis>1491854912016</millis>
+  <date>2017-04-11T19:29:50</date>
+  <millis>1491931790740</millis>
   <sequence>19</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
-  <class>lottoClient.source.splashScreen.SplashModel$1</class>
-  <method>call</method>
-  <thread>18</thread>
-  <message>en</message>
+  <class>lottoClient.source.commonClasses.Configuration</class>
+  <method>&lt;init&gt;</method>
+  <thread>17</thread>
+  <message>Default: User = anonymous</message>
+</record>
+<record>
+  <date>2017-04-11T19:29:50</date>
+  <millis>1491931790744</millis>
+  <sequence>20</sequence>
+  <logger>LottoClientApp</logger>
+  <level>CONFIG</level>
+  <class>lottoClient.source.commonClasses.Configuration</class>
+  <method>&lt;init&gt;</method>
+  <thread>17</thread>
+  <message>Option: Language = de</message>
 </record>
 </log>

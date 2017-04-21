@@ -37,8 +37,8 @@ public class ClientView extends View<ClientModel> {
 		
 		
 		BorderPane root = new BorderPane();
-		l1 = new Label("");
-		b1= new Button("programm.menu.file");
+		l1 = new Label(translator.getString("programm.menu.file"));
+		b1= new Button("save");
 		b2= new Button("de");
 		b3= new Button("en");
 		root.setBottom(l1);
@@ -48,6 +48,14 @@ public class ClientView extends View<ClientModel> {
 		
 		Scene scene = new Scene(root);
 		return scene;
+	}
+	
+	protected void updateTexts() {
+		Translator translator = ServiceLocator.getServiceLocator().getTranslator();
+
+		// The menu entries
+		l1.setText(translator.getString("programm.menu.file"));
+		
 	}
 
 }
