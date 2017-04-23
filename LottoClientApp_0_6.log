@@ -2,47 +2,80 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-04-11T19:27:08</date>
-  <millis>1491931628539</millis>
-  <sequence>1</sequence>
+  <date>2017-04-23T23:31:00</date>
+  <millis>1492983060729</millis>
+  <sequence>13</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
   <method>&lt;init&gt;</method>
-  <thread>17</thread>
+  <thread>18</thread>
   <message>Default configuration file found</message>
 </record>
 <record>
-  <date>2017-04-11T19:27:08</date>
-  <millis>1491931628646</millis>
+  <date>2017-04-23T23:31:00</date>
+  <millis>1492983060752</millis>
+  <sequence>16</sequence>
+  <logger>LottoClientApp</logger>
+  <level>CONFIG</level>
+  <class>lottoClient.source.commonClasses.Configuration</class>
+  <method>&lt;init&gt;</method>
+  <thread>18</thread>
+  <message>Default: Language = en</message>
+</record>
+<record>
+  <date>2017-04-23T23:31:00</date>
+  <millis>1492983060755</millis>
+  <sequence>17</sequence>
+  <logger>LottoClientApp</logger>
+  <level>CONFIG</level>
+  <class>lottoClient.source.commonClasses.Configuration</class>
+  <method>&lt;init&gt;</method>
+  <thread>18</thread>
+  <message>Default: User = anonymous</message>
+</record>
+<record>
+  <date>2017-04-23T23:31:00</date>
+  <millis>1492983060755</millis>
   <sequence>18</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
   <method>&lt;init&gt;</method>
-  <thread>17</thread>
-  <message>Default: Language = en</message>
+  <thread>18</thread>
+  <message>Option: Language = en</message>
 </record>
 <record>
-  <date>2017-04-11T19:27:08</date>
-  <millis>1491931628650</millis>
+  <date>2017-04-23T23:31:00</date>
+  <millis>1492983060757</millis>
   <sequence>19</sequence>
   <logger>LottoClientApp</logger>
-  <level>CONFIG</level>
-  <class>lottoClient.source.commonClasses.Configuration</class>
+  <level>INFO</level>
+  <class>lottoClient.source.commonClasses.Translator</class>
   <method>&lt;init&gt;</method>
-  <thread>17</thread>
-  <message>Default: User = anonymous</message>
+  <thread>18</thread>
+  <message>Loaded resources for en</message>
 </record>
 <record>
-  <date>2017-04-11T19:27:08</date>
-  <millis>1491931628655</millis>
-  <sequence>20</sequence>
+  <date>2017-04-23T23:31:00</date>
+  <millis>1492983060847</millis>
+  <sequence>126</sequence>
+  <logger>LottoClientApp</logger>
+  <level>INFO</level>
+  <class>lottoClient.LottoClientApp</class>
+  <method>startApp</method>
+  <thread>14</thread>
+  <message>Client App Start</message>
+</record>
+<record>
+  <date>2017-04-23T23:31:02</date>
+  <millis>1492983062447</millis>
+  <sequence>167</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
-  <method>&lt;init&gt;</method>
-  <thread>17</thread>
-  <message>Option: Language = de</message>
+  <method>save</method>
+  <thread>14</thread>
+  <message>Local configuration file saved</message>
 </record>
 </log>

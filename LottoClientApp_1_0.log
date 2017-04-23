@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078354</millis>
-  <sequence>15</sequence>
+  <date>2017-04-23T23:57:18</date>
+  <millis>1492984638200</millis>
+  <sequence>17</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
@@ -13,9 +13,9 @@
   <message>Default configuration file found</message>
 </record>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078375</millis>
-  <sequence>16</sequence>
+  <date>2017-04-23T23:57:18</date>
+  <millis>1492984638225</millis>
+  <sequence>18</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
@@ -24,9 +24,9 @@
   <message>Default: Language = en</message>
 </record>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078378</millis>
-  <sequence>17</sequence>
+  <date>2017-04-23T23:57:18</date>
+  <millis>1492984638227</millis>
+  <sequence>19</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
@@ -35,9 +35,9 @@
   <message>Default: User = anonymous</message>
 </record>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078379</millis>
-  <sequence>18</sequence>
+  <date>2017-04-23T23:57:18</date>
+  <millis>1492984638228</millis>
+  <sequence>20</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
   <class>lottoClient.source.commonClasses.Configuration</class>
@@ -46,9 +46,9 @@
   <message>Option: Language = en</message>
 </record>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078381</millis>
-  <sequence>19</sequence>
+  <date>2017-04-23T23:57:18</date>
+  <millis>1492984638230</millis>
+  <sequence>21</sequence>
   <logger>LottoClientApp</logger>
   <level>INFO</level>
   <class>lottoClient.source.commonClasses.Translator</class>
@@ -57,9 +57,9 @@
   <message>Loaded resources for en</message>
 </record>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078476</millis>
-  <sequence>126</sequence>
+  <date>2017-04-23T23:57:18</date>
+  <millis>1492984638332</millis>
+  <sequence>129</sequence>
   <logger>LottoClientApp</logger>
   <level>INFO</level>
   <class>lottoClient.LottoClientApp</class>

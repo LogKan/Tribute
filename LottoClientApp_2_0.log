@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-04-23T23:30:12</date>
-  <millis>1492983012998</millis>
+  <date>2017-04-23T23:38:47</date>
+  <millis>1492983527487</millis>
   <sequence>15</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
@@ -13,8 +13,8 @@
   <message>Default configuration file found</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:13</date>
-  <millis>1492983013020</millis>
+  <date>2017-04-23T23:38:47</date>
+  <millis>1492983527510</millis>
   <sequence>16</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
@@ -24,8 +24,8 @@
   <message>Default: Language = en</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:13</date>
-  <millis>1492983013022</millis>
+  <date>2017-04-23T23:38:47</date>
+  <millis>1492983527512</millis>
   <sequence>17</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
@@ -35,8 +35,8 @@
   <message>Default: User = anonymous</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:13</date>
-  <millis>1492983013023</millis>
+  <date>2017-04-23T23:38:47</date>
+  <millis>1492983527513</millis>
   <sequence>18</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
@@ -46,8 +46,8 @@
   <message>Option: Language = en</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:13</date>
-  <millis>1492983013025</millis>
+  <date>2017-04-23T23:38:47</date>
+  <millis>1492983527515</millis>
   <sequence>19</sequence>
   <logger>LottoClientApp</logger>
   <level>INFO</level>
@@ -57,8 +57,8 @@
   <message>Loaded resources for en</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:13</date>
-  <millis>1492983013125</millis>
+  <date>2017-04-23T23:38:47</date>
+  <millis>1492983527606</millis>
   <sequence>126</sequence>
   <logger>LottoClientApp</logger>
   <level>INFO</level>
@@ -68,9 +68,20 @@
   <message>Client App Start</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:26</date>
-  <millis>1492983026197</millis>
-  <sequence>832</sequence>
+  <date>2017-04-23T23:38:49</date>
+  <millis>1492983529978</millis>
+  <sequence>382</sequence>
+  <logger>LottoClientApp</logger>
+  <level>WARNING</level>
+  <class>lottoClient.source.commonClasses.Translator</class>
+  <method>getString</method>
+  <thread>14</thread>
+  <message>Missing string: Language</message>
+</record>
+<record>
+  <date>2017-04-23T23:38:57</date>
+  <millis>1492983537718</millis>
+  <sequence>1218</sequence>
   <logger>LottoClientApp</logger>
   <level>INFO</level>
   <class>lottoClient.source.commonClasses.Translator</class>
@@ -79,9 +90,9 @@
   <message>Loaded resources for de</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:26</date>
-  <millis>1492983026198</millis>
-  <sequence>833</sequence>
+  <date>2017-04-23T23:38:57</date>
+  <millis>1492983537719</millis>
+  <sequence>1219</sequence>
   <logger>LottoClientApp</logger>
   <level>WARNING</level>
   <class>lottoClient.source.commonClasses.Translator</class>
@@ -90,9 +101,9 @@
   <message>Missing string: program.menu.file</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:26</date>
-  <millis>1492983026199</millis>
-  <sequence>834</sequence>
+  <date>2017-04-23T23:38:57</date>
+  <millis>1492983537720</millis>
+  <sequence>1220</sequence>
   <logger>LottoClientApp</logger>
   <level>WARNING</level>
   <class>lottoClient.source.commonClasses.Translator</class>
@@ -101,9 +112,9 @@
   <message>Missing string: program.menu.file</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:26</date>
-  <millis>1492983026199</millis>
-  <sequence>835</sequence>
+  <date>2017-04-23T23:38:57</date>
+  <millis>1492983537720</millis>
+  <sequence>1221</sequence>
   <logger>LottoClientApp</logger>
   <level>WARNING</level>
   <class>lottoClient.source.commonClasses.Translator</class>
@@ -112,9 +123,9 @@
   <message>Missing string: program.menu.file.properties</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:26</date>
-  <millis>1492983026200</millis>
-  <sequence>836</sequence>
+  <date>2017-04-23T23:38:57</date>
+  <millis>1492983537720</millis>
+  <sequence>1222</sequence>
   <logger>LottoClientApp</logger>
   <level>WARNING</level>
   <class>lottoClient.source.commonClasses.Translator</class>
@@ -123,9 +134,9 @@
   <message>Missing string: program.menu.file.exit</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:26</date>
-  <millis>1492983026200</millis>
-  <sequence>837</sequence>
+  <date>2017-04-23T23:38:57</date>
+  <millis>1492983537721</millis>
+  <sequence>1223</sequence>
   <logger>LottoClientApp</logger>
   <level>WARNING</level>
   <class>lottoClient.source.commonClasses.Translator</class>
@@ -134,9 +145,9 @@
   <message>Missing string: program.menu.window</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:26</date>
-  <millis>1492983026200</millis>
-  <sequence>838</sequence>
+  <date>2017-04-23T23:38:57</date>
+  <millis>1492983537722</millis>
+  <sequence>1224</sequence>
   <logger>LottoClientApp</logger>
   <level>WARNING</level>
   <class>lottoClient.source.commonClasses.Translator</class>
@@ -145,14 +156,36 @@
   <message>Missing string: program.menu.window.fullScreen</message>
 </record>
 <record>
-  <date>2017-04-23T23:30:27</date>
-  <millis>1492983027122</millis>
-  <sequence>896</sequence>
+  <date>2017-04-23T23:38:58</date>
+  <millis>1492983538167</millis>
+  <sequence>1279</sequence>
   <logger>LottoClientApp</logger>
   <level>INFO</level>
   <class>lottoClient.source.commonClasses.Translator</class>
   <method>&lt;init&gt;</method>
   <thread>14</thread>
   <message>Loaded resources for en</message>
+</record>
+<record>
+  <date>2017-04-23T23:38:59</date>
+  <millis>1492983539404</millis>
+  <sequence>1344</sequence>
+  <logger>LottoClientApp</logger>
+  <level>CONFIG</level>
+  <class>lottoClient.source.commonClasses.Configuration</class>
+  <method>save</method>
+  <thread>14</thread>
+  <message>Local configuration file saved</message>
+</record>
+<record>
+  <date>2017-04-23T23:39:06</date>
+  <millis>1492983546878</millis>
+  <sequence>1686</sequence>
+  <logger>LottoClientApp</logger>
+  <level>WARNING</level>
+  <class>lottoClient.source.commonClasses.Translator</class>
+  <method>getString</method>
+  <thread>14</thread>
+  <message>Missing string: Language</message>
 </record>
 </log>

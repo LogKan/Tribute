@@ -40,23 +40,23 @@ public class ClientView extends View<ClientModel> {
 		Translator translator = serviceLocator.getTranslator();
 		
 		BorderPane root = new BorderPane();
-		l1 = new Label(translator.getString("programm.menu.file"));
+		l1 = new Label(translator.getString("program.menu.file"));
 		b1= new Button("save");
 		b2= new Button("de");
 		b3= new Button("en");
 		
 		MenuBar menuBar = new MenuBar();
-		file = new Menu(translator.getString("programm.menu.file"));
-		fileProperties = new MenuItem(translator.getString("programm.menu.file.properties"));
-		fileExit = new MenuItem(translator.getString("programm.menu.file.exit"));
+		file = new Menu(translator.getString("program.menu.file"));
+		fileProperties = new MenuItem(translator.getString("program.menu.file.properties"));
+		fileExit = new MenuItem(translator.getString("program.menu.file.exit"));
 		
-		window = new Menu(translator.getString("programm.menu.window"));
+		window = new Menu(translator.getString("program.menu.window"));
 		windowSize = new MenuItem();
 		if (stage.isFullScreen() == false)
 		{
-			windowSize.setText(translator.getString("programm.menu.window.fullScreen"));
+			windowSize.setText(translator.getString("program.menu.window.fullScreen"));
 		} else {
-			windowSize.setText(translator.getString("programm.menu.window.minimizeScreen"));
+			windowSize.setText(translator.getString("program.menu.window.minimizeScreen"));
 		}
 		
 		file.getItems().addAll(fileProperties,fileExit);
@@ -77,16 +77,16 @@ public class ClientView extends View<ClientModel> {
 		Translator translator = ServiceLocator.getServiceLocator().getTranslator();
 
 		// The menu entries
-		l1.setText(translator.getString("programm.menu.file"));
-		file.setText(translator.getString("programm.menu.file"));
-		fileProperties.setText(translator.getString("programm.menu.file.properties"));
-		fileExit.setText(translator.getString("programm.menu.file.exit"));
-		window.setText(translator.getString("programm.menu.window"));
+		l1.setText(translator.getString("program.menu.file"));
+		file.setText(translator.getString("program.menu.file"));
+		fileProperties.setText(translator.getString("program.menu.file.properties"));
+		fileExit.setText(translator.getString("program.menu.file.exit"));
+		window.setText(translator.getString("program.menu.window"));
 		if (stage.isFullScreen() == false)
 		{
-			windowSize.setText(translator.getString("programm.menu.window.fullScreen"));
+			windowSize.setText(translator.getString("program.menu.window.fullScreen"));
 		} else {
-			windowSize.setText(translator.getString("programm.menu.window.minimizeScreen"));
+			windowSize.setText(translator.getString("program.menu.window.minimizeScreen"));
 		}
 	}
 

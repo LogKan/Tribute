@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078354</millis>
+  <date>2017-04-23T23:39:51</date>
+  <millis>1492983591270</millis>
   <sequence>15</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
@@ -13,8 +13,8 @@
   <message>Default configuration file found</message>
 </record>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078375</millis>
+  <date>2017-04-23T23:39:51</date>
+  <millis>1492983591291</millis>
   <sequence>16</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
@@ -24,8 +24,8 @@
   <message>Default: Language = en</message>
 </record>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078378</millis>
+  <date>2017-04-23T23:39:51</date>
+  <millis>1492983591293</millis>
   <sequence>17</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
@@ -35,8 +35,8 @@
   <message>Default: User = anonymous</message>
 </record>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078379</millis>
+  <date>2017-04-23T23:39:51</date>
+  <millis>1492983591294</millis>
   <sequence>18</sequence>
   <logger>LottoClientApp</logger>
   <level>CONFIG</level>
@@ -46,8 +46,8 @@
   <message>Option: Language = en</message>
 </record>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078381</millis>
+  <date>2017-04-23T23:39:51</date>
+  <millis>1492983591296</millis>
   <sequence>19</sequence>
   <logger>LottoClientApp</logger>
   <level>INFO</level>
@@ -57,8 +57,8 @@
   <message>Loaded resources for en</message>
 </record>
 <record>
-  <date>2017-04-23T23:31:18</date>
-  <millis>1492983078476</millis>
+  <date>2017-04-23T23:39:51</date>
+  <millis>1492983591390</millis>
   <sequence>126</sequence>
   <logger>LottoClientApp</logger>
   <level>INFO</level>
