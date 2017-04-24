@@ -1,9 +1,11 @@
 package lottoClient.source.propertiesWindow;
 
+import java.util.Locale;
 import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -12,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import lottoClient.source.clientApp.ClientView;
 import lottoClient.source.commonClasses.Configuration;
 import lottoClient.source.commonClasses.ServiceLocator;
 import lottoClient.source.commonClasses.Translator;
@@ -22,12 +25,12 @@ public class PropertiesView {
 	Translator translator = servicelocator.getTranslator();
 	Configuration config = servicelocator.getConfiguration();
 	
-	Label title = new Label();
 	Label lLanguage = new Label();
 	Label lUser = new Label();
 	TextField fUser = new TextField();
 	Button bSave = new Button();
 	Button bCancel = new Button();
+	ComboBox comboBox;
 	
 	private PropertiesModel model;
 	private Stage stage;
@@ -39,8 +42,10 @@ public class PropertiesView {
 		stage.setTitle(translator.getString("program.properties.titel"));
 		BorderPane root = new BorderPane();
 		GridPane gridPain = new GridPane();
+		gridPain.setPadding(new Insets(10,10,10,10));
+		gridPain.setVgap(10);
+		gridPain.setHgap(10);
 		
-		title.setText(translator.getString("program.properties.titel"));
 		lLanguage.setText(translator.getString("program.properties.lLanguage"));
 		lUser.setText(translator.getString("program.properties.lUser"));
 		fUser.setText(config.getOption("User"));
@@ -48,11 +53,14 @@ public class PropertiesView {
 		bSave.setText(translator.getString("program.properties.bSave"));
 		bCancel.setText(translator.getString("program.properties.bCancel"));
 		
-		ObservableList<String> language = FXCollections.observableArrayList(
-				"DE",
-				"EN"
+		ObservableList<Locale> language = FXCollections.observableArrayList(
 				);
-		ComboBox comboBox = new ComboBox(language);
+		for (Locale locale: servicelocator.getLocales()){
+			language.addAll(locale);			
+		}
+		
+		comboBox = new ComboBox(language);
+		comboBox.setValue(config.getOption("Language"));
 		
 		gridPain.add(lLanguage,0,0);
 		gridPain.add(comboBox, 1, 0);
@@ -61,8 +69,6 @@ public class PropertiesView {
 		gridPain.add(bSave, 0, 3);
 		gridPain.add(bCancel, 1, 3);
 		
-		
-		root.setTop(title);
 		root.setCenter(gridPain);
 		
 		
