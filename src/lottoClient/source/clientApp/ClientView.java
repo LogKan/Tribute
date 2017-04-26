@@ -1,7 +1,6 @@
 package lottoClient.source.clientApp;
 
 import java.util.logging.Logger;
-
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,6 +8,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import lottoClient.source.abstractClasses.View;
@@ -17,10 +17,7 @@ import lottoClient.source.commonClasses.Translator;
 
 public class ClientView extends View<ClientModel> {
 	
-	public Label l1;
-	public Button b1;
-	public Button b2;
-	public Button b3;
+	
 	public Menu file;
 	public MenuItem fileProperties;
 	public MenuItem fileExit;
@@ -28,11 +25,11 @@ public class ClientView extends View<ClientModel> {
 	public MenuItem windowSize;
 	public Menu help;
 	public MenuItem helpHelp;
-	public MenuItem helpAbout;
+	public MenuItem helpAbout;	
+	public Button number[] = new Button[60];
 
 	public ClientView(Stage stage, ClientModel model) {
-		super(stage, model);
-		
+		super(stage, model);	
 	}
 
 	@Override
@@ -44,10 +41,8 @@ public class ClientView extends View<ClientModel> {
 		stage.setTitle(translator.getString("program.name"));
 		
 		BorderPane root = new BorderPane();
-		l1 = new Label(translator.getString("program.menu.file"));
-		b1= new Button("save");
-		b2= new Button("de");
-		b3= new Button("en");
+		
+		
 		
 		MenuBar menuBar = new MenuBar();
 		file = new Menu(translator.getString("program.menu.file"));
@@ -74,11 +69,10 @@ public class ClientView extends View<ClientModel> {
 		
 		menuBar.getMenus().addAll(file, window, help);
 		
+		GridPane gridPane = new GridPane();
+		
 		root.setTop(menuBar);
-		root.setBottom(l1);
-		HBox hBox = new HBox();
-		hBox.getChildren().addAll(b1,b2,b3);
-		root.setCenter(hBox);
+		root.setCenter(gridPane);
 		
 		Scene scene = new Scene(root);
 		return scene;
@@ -88,7 +82,6 @@ public class ClientView extends View<ClientModel> {
 		Translator translator = ServiceLocator.getServiceLocator().getTranslator();
 
 		// The menu entries
-		l1.setText(translator.getString("program.menu.file"));
 		file.setText(translator.getString("program.menu.file"));
 		fileProperties.setText(translator.getString("program.menu.file.properties"));
 		fileExit.setText(translator.getString("program.menu.file.exit"));

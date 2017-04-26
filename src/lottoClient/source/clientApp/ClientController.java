@@ -27,21 +27,6 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 		translator = serviceLocator.getTranslator();
 		
 		
-		view.b1.setOnAction(Event -> {
-			serviceLocator.getConfiguration().setLocalOption("Language", serviceLocator.getTranslator().getCurrentLocale().getLanguage());
-			serviceLocator.getConfiguration().save();
-		});
-		
-		view.b2.setOnAction(Event -> {
-			serviceLocator.setTranslator(new Translator("de"));
-			view.updateTexts();
-		});
-		
-		view.b3.setOnAction(Event -> {
-			serviceLocator.setTranslator(new Translator("en"));
-			view.updateTexts();
-		});
-		
 		view.windowSize.setOnAction(Event -> {
 			view.setSize();
 			view.updateTexts();
