@@ -34,10 +34,12 @@ public class PropertiesView {
 	
 	private PropertiesModel model;
 	private Stage stage;
+	private ClientView clientView;
 	
-	public PropertiesView(Stage stage, PropertiesModel model){
+	public PropertiesView(Stage stage, PropertiesModel model, ClientView clientView){
 		this.stage = stage;
 		this.model = model;
+		this.clientView = clientView;
 		
 		stage.setTitle(translator.getString("program.properties.titel"));
 		BorderPane root = new BorderPane();
@@ -86,6 +88,21 @@ public class PropertiesView {
 	
 	public Stage getStage(){
 		return stage;
+	}
+	
+	public void updateTexts() {
+		Translator translator = ServiceLocator.getServiceLocator().getTranslator();
+
+		// The menu entries
+		stage.setTitle(translator.getString("program.properties.titel"));
+		lLanguage.setText(translator.getString("program.properties.lLanguage"));
+		lUser.setText(translator.getString("program.properties.lUser"));
+		bSave.setText(translator.getString("program.properties.bSave"));
+		bCancel.setText(translator.getString("program.properties.bCancel"));		
+	}
+	
+	public void updateTextsClientView() {
+		clientView.updateTexts();
 	}
 
 }

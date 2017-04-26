@@ -73,7 +73,7 @@ public class ClientView extends View<ClientModel> {
 		return scene;
 	}
 	
-	protected void updateTexts() {
+	public void updateTexts() {
 		Translator translator = ServiceLocator.getServiceLocator().getTranslator();
 
 		// The menu entries

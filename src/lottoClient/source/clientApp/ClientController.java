@@ -44,7 +44,7 @@ public class ClientController extends Controller<ClientModel, ClientView> {
 		view.fileProperties.setOnAction(Event -> {
 			Stage propertiesStage = new Stage();
 			PropertiesModel propertiesModel = new PropertiesModel();
-			PropertiesView propertiesView = new PropertiesView(propertiesStage, propertiesModel);
+			PropertiesView propertiesView = new PropertiesView(propertiesStage, propertiesModel, view);
 			new PropertiesController (propertiesModel, propertiesView);
 			propertiesView.start();
 			

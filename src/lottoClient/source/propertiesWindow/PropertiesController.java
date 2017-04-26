@@ -20,11 +20,17 @@ public class PropertiesController {
 		this.model = model;
 		this.view = view;
 
+		view.comboBox.setOnAction(Event -> {
+			serviceLocator.setTranslator(new Translator(view.comboBox.getSelectionModel().getSelectedItem().toString()));
+			view.updateTexts();
+		});
+		
 		view.bSave.setOnAction(Event -> {
 			serviceLocator.getConfiguration().setLocalOption("Language", view.comboBox.getSelectionModel().getSelectedItem().toString());
 			config.setLocalOption("User", view.fUser.getText());
 			config.save();
 			view.stop();
+			view.updateTextsClientView();
 		});
 		
 		view.bCancel.setOnAction(Event -> {
