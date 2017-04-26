@@ -26,7 +26,9 @@ public class ClientView extends View<ClientModel> {
 	public MenuItem fileExit;
 	public Menu window;
 	public MenuItem windowSize;
-	
+	public Menu help;
+	public MenuItem helpHelp;
+	public MenuItem helpAbout;
 
 	public ClientView(Stage stage, ClientModel model) {
 		super(stage, model);
@@ -38,6 +40,8 @@ public class ClientView extends View<ClientModel> {
 		ServiceLocator serviceLocator = ServiceLocator.getServiceLocator();
 		Logger logger = serviceLocator.getLogger();
 		Translator translator = serviceLocator.getTranslator();
+		
+		stage.setTitle(translator.getString("program.name"));
 		
 		BorderPane root = new BorderPane();
 		l1 = new Label(translator.getString("program.menu.file"));
@@ -59,9 +63,16 @@ public class ClientView extends View<ClientModel> {
 			windowSize.setText(translator.getString("program.menu.window.minimizeScreen"));
 		}
 		
+		help = new Menu(translator.getString("program.menu.help"));
+		helpHelp = new MenuItem(translator.getString("program.menu.help.help"));
+		helpAbout = new MenuItem(translator.getString("program.menu.help.about"));
+		
 		file.getItems().addAll(fileProperties,fileExit);
 		window.getItems().addAll(windowSize);
-		menuBar.getMenus().addAll(file, window);
+		
+		help.getItems().addAll(helpHelp,helpAbout);
+		
+		menuBar.getMenus().addAll(file, window, help);
 		
 		root.setTop(menuBar);
 		root.setBottom(l1);
@@ -88,6 +99,9 @@ public class ClientView extends View<ClientModel> {
 		} else {
 			windowSize.setText(translator.getString("program.menu.window.minimizeScreen"));
 		}
+		help.setText(translator.getString("program.menu.help"));
+		helpHelp.setText(translator.getString("program.menu.help.help"));
+		helpAbout.setText(translator.getString("program.menu.help.about"));
 	}
 
 }
