@@ -1,17 +1,18 @@
 package lottoClient.source.clientApp;
 
 import java.util.logging.Logger;
+
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import lottoClient.source.abstractClasses.View;
+import lottoClient.source.commonClasses.LotteryButton;
+import lottoClient.source.commonClasses.LotteryTicket;
 import lottoClient.source.commonClasses.ServiceLocator;
 import lottoClient.source.commonClasses.Translator;
 
@@ -26,7 +27,8 @@ public class ClientView extends View<ClientModel> {
 	public Menu help;
 	public MenuItem helpHelp;
 	public MenuItem helpAbout;	
-	public Button number[] = new Button[60];
+	public Label status;
+	public LotteryButton[] buttons;
 
 	public ClientView(Stage stage, ClientModel model) {
 		super(stage, model);	
@@ -40,7 +42,7 @@ public class ClientView extends View<ClientModel> {
 		
 		stage.setTitle(translator.getString("program.name"));
 		
-		BorderPane root = new BorderPane();
+		
 		
 		
 		
@@ -69,12 +71,23 @@ public class ClientView extends View<ClientModel> {
 		
 		menuBar.getMenus().addAll(file, window, help);
 		
+		status = new Label("Status");
 		GridPane gridPane = new GridPane();
 		
+		// Option für eine Schlaufe wenn mehrere Tippmöglichkeiten integriert werden.
+		LotteryTicket t1 =  new LotteryTicket();
+		buttons = t1.getLotteryButton();
+		gridPane.add(t1.getLotteryTicket(), 0, 0);
+		
+		BorderPane root = new BorderPane();
+		
+		// Erstellung Scene
 		root.setTop(menuBar);
 		root.setCenter(gridPane);
+		root.setBottom(status);
 		
 		Scene scene = new Scene(root);
+		//scene.getStylesheets().add(getClass().getResource("Client.css").toExternalForm());
 		return scene;
 	}
 	
@@ -96,5 +109,4 @@ public class ClientView extends View<ClientModel> {
 		helpHelp.setText(translator.getString("program.menu.help.help"));
 		helpAbout.setText(translator.getString("program.menu.help.about"));
 	}
-
 }

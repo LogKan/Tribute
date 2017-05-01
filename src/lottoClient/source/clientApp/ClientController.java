@@ -2,12 +2,16 @@ package lottoClient.source.clientApp;
 
 import java.util.Locale;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import lottoClient.LottoClientApp;
 import lottoClient.source.abstractClasses.Controller;
 import lottoClient.source.commonClasses.Configuration;
+import lottoClient.source.commonClasses.LotteryButton;
 import lottoClient.source.commonClasses.ServiceLocator;
 import lottoClient.source.commonClasses.Translator;
 import lottoClient.source.helpWindow.Help;
@@ -42,8 +46,6 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 		});
 		
 		view.fileExit.setOnAction(Event -> {
-			serviceLocator.getConfiguration().setLocalOption("Language", serviceLocator.getTranslator().getCurrentLocale().getLanguage());
-			serviceLocator.getConfiguration().save();
 			view.stop();
 			
 		});
@@ -59,6 +61,20 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 			about.setContentText(translator.getString("program.menu.help.about.titel.message"));
 			about.showAndWait();
 		});
+
+		
+		for(LotteryButton b : view.buttons){
+			
+			b.setOnAction(Event -> {
+				
+				if(model.getMaxSelectedLottoNumber() == true)
+					 {
+						b.setDisable(true);
+					} else {
+						model.setSelectedLottoNumber(Integer.parseInt(b.getText()));
+				} 
+			});
+		}
 		
 	}
 
