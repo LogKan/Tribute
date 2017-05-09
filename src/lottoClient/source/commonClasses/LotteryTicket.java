@@ -1,7 +1,8 @@
 package lottoClient.source.commonClasses;
 
+import java.util.LinkedList;
+import java.util.logging.Logger;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 /**
  * Erzeugen eines Feldes für die Auswahl von den Lottozahlen per Mausklick.
@@ -16,7 +17,13 @@ public class LotteryTicket extends GridPane{
 	private GridPane superNumber;
 	private LotteryButton lotteryButtonNumber[] = new LotteryButton[42];
 	private LotteryButton lotteryButtonSuperNumber[] = new LotteryButton[6];
-	private int selected;
+	
+	ServiceLocator serviceLocator = ServiceLocator.getServiceLocator();
+	Logger logger = serviceLocator.getLogger();
+	// Anzahl zahlen
+	private final int size= 6;
+	private LinkedList<Integer> selectedLottoNumber = new LinkedList<>();
+	private boolean maxSeleted;
 	/**
 	 * Konstruktor für das Lotto Nummernfeld.
 	 */
@@ -51,14 +58,26 @@ public class LotteryTicket extends GridPane{
 		return lotteryTicket;
 	}
 	
+	/**
+	 * Rückgabe der lotteryButtonNumber
+	 * @return LotteryButton
+	 */
 	public LotteryButton[] getLotteryButton(){
 		return lotteryButtonNumber;
 	}
 	
+	/**
+	 * Rückgabe der getSuperButton
+	 * @return LotteryButton
+	 */
 	public LotteryButton[] getSuperButton(){
 		return lotteryButtonSuperNumber;
 	}
 	
+	/**
+	 * Rückgabe deiner Gridpane mit den Superzahlen.
+	 * @return GridPane
+	 */
 	public GridPane superNumber(){
 		this.superNumber = new GridPane();
 		this.superNumber.setPadding(new Insets(10));
@@ -77,5 +96,50 @@ public class LotteryTicket extends GridPane{
 				}
 		return this.superNumber;
 	}
+	/**
+	 * Hinzufügen und ausewerten der gewählten LottoNummern und angabe welche size die Liste haben muss
+	 * @param number Nummer für hinzufügen in der Liste
+	 */
+	public void setSelectedLottoNumber(int number){
+		if(selectedLottoNumber.size() < size) {
+			maxSeleted = false;
+			selectedLottoNumber.addFirst(number);
+			logger.info("select "+number+" size:"+this.selectedLottoNumber.size());
+			if(selectedLottoNumber.size() == size) {
+				maxSeleted = true;
+			}
+		}
+	}
 	
+	/**
+	 * Löschen einer Nummer aus der Liste LottoNummern
+	 * @param number Nummer welche aus der Liste gelöscht wird
+	 */
+	public void setDeselectedLottoNumber(int number){
+		if(this.selectedLottoNumber.indexOf(number)>=0)
+			this.selectedLottoNumber.remove(this.selectedLottoNumber.indexOf(number));
+		logger.info("deselect "+number+" size:"+this.selectedLottoNumber.size());
+	}
+	/**
+	 * Wurden die gesamtanzahl der definierten Zahlen erfasst
+	 * @return boolean
+	 */
+	public boolean getMaxSelectedLottoNumber(){
+		return maxSeleted;
+	}
+	
+	/**
+	 * MaxSelected auf false setzen
+	 */
+	public void setMaxSelectedLottoNumber(){
+		maxSeleted = false;
+	}
+	
+	/**
+	 * Übergabe der Liste mit den selektierten lottonummern.
+	 * @return LinkedList
+	 */
+	public LinkedList getSelectedLottoNumber(){
+		return this.selectedLottoNumber;
+	}	
 }

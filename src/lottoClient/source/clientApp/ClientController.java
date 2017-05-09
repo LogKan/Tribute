@@ -1,17 +1,9 @@
 package lottoClient.source.clientApp;
 
-import java.util.LinkedList;
-import java.util.Locale;
-
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import lottoClient.LottoClientApp;
 import lottoClient.source.abstractClasses.Controller;
-import lottoClient.source.commonClasses.Configuration;
 import lottoClient.source.commonClasses.LotteryButton;
 import lottoClient.source.commonClasses.LottoMashine;
 import lottoClient.source.commonClasses.ServiceLocator;
@@ -67,7 +59,7 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 		for(LotteryButton b : view.t1.getLotteryButton()){
 			b.setOnAction(Event -> {
 				this.buttonRule(b);
-				view.lLottoSelectedStatus.setText(model.getSelectedLottoNumber().toString());
+				view.lLottoSelectedStatus.setText(view.t1.getSelectedLottoNumber().toString());
 			});
 		}
 		
@@ -89,25 +81,25 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 	 * @param b LotteryButton Klasse
 	 */
 	private void buttonRule(LotteryButton b){
-		if(!model.getMaxSelectedLottoNumber()) {
+		if(!view.t1.getMaxSelectedLottoNumber()) {
 			if(!b.getSelected()) {
-				model.setSelectedLottoNumber(Integer.parseInt(b.getText()));
+				view.t1.setSelectedLottoNumber(Integer.parseInt(b.getText()));
 				b.switchSelected();
 				b.setId("buttonLottoSelected");
 			} else {
-				model.setDeselectedLottoNumber(Integer.parseInt(b.getText()));
+				view.t1.setDeselectedLottoNumber(Integer.parseInt(b.getText()));
 				b.switchSelected();
 				b.setId("buttonLotto");
 			}
-			if (model.getMaxSelectedLottoNumber())  {
+			if (view.t1.getMaxSelectedLottoNumber())  {
 				view.play.setDisable(false);
 			}
 		} else {
 			if(b.getSelected()) {
-				model.setDeselectedLottoNumber(Integer.parseInt(b.getText()));
+				view.t1.setDeselectedLottoNumber(Integer.parseInt(b.getText()));
 				b.switchSelected();
 				b.setId("buttonLotto");
-				model.setMaxSelectedLottoNumber();
+				view.t1.setMaxSelectedLottoNumber();
 				view.play.setDisable(true);
 			}
 		}	
