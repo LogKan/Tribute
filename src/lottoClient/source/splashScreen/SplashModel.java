@@ -90,8 +90,8 @@ public class SplashModel extends Model{
 	        
 	        // Add a file handler, putting the rotating files in the tmp directory
 	        try {
-	            Handler logHandler = new FileHandler(serviceLocator.getAPP_NAME() + "_%u" + "_%g" + ".log",
-	                    1000000, 9);
+	            Handler logHandler = new FileHandler("/%h"+serviceLocator.getAPP_NAME() + "_%u" + "_%g" + ".log",
+	                    1000000, 3);
 	            logHandler.setLevel(Level.FINEST);
 	            ourLogger.addHandler(logHandler);
 	        } catch (Exception e) { // If we are unable to create log files

@@ -1,0 +1,54 @@
+/* Styles CSS Datei für LottoClientApp by Fernando Stutz */ 
+
+.root {
+	-fx-background-color: #FFFFFF;
+}
+
+.buttonLotto {
+	-fx-pref-width: 35px;
+	-fx-pref-height: 35px;
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: #FF0000;
+}
+
+.buttonLotto:hover {
+	 -fx-font-weight: bold;
+}
+
+#buttonLottoSelected {
+	-fx-pref-width: 35px;
+	-fx-pref-height: 35px;
+	-fx-background-image: url('selected.jpeg');
+	-fx-background-repeat: no-repeat;
+  	-fx-background-position: center;
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: #FF0000;
+}
+
+#buttonLotto {
+	-fx-pref-width: 35px;
+	-fx-pref-height: 35px;
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: #FF0000;
+}
+
+.buttonPlay {
+	-fx-pref-width: 100px;
+	-fx-pref-height: 35px;
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: #FF0000;
+	-fx-row-valignment: bottom;
+}
+
+.buttonPlay: disabled {
+	-fx-background-color: #dcdcdc;
+	-fx-border-color: #dc143c;
+}
+
+.buttonPlay:hover {
+	 -fx-font-weight: bold;
+}
+
+.buttonPlay:pressed {
+	 -fx-border-color: #008000;
+}

@@ -3,12 +3,15 @@ package lottoClient.source.clientApp;
 import java.util.logging.Logger;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lottoClient.source.abstractClasses.View;
 import lottoClient.source.commonClasses.LotteryButton;
@@ -28,7 +31,12 @@ public class ClientView extends View<ClientModel> {
 	public MenuItem helpHelp;
 	public MenuItem helpAbout;	
 	public Label status;
-	public LotteryButton[] buttons;
+	public Label lLottoSelected;
+	public Label lLottoSelectedStatus;
+	public Label lLottoMachine;
+	public Label lLottoMachineStatus;
+	public Button play;
+	public LotteryTicket t1;
 
 	public ClientView(Stage stage, ClientModel model) {
 		super(stage, model);	
@@ -72,22 +80,49 @@ public class ClientView extends View<ClientModel> {
 		menuBar.getMenus().addAll(file, window, help);
 		
 		status = new Label("Status");
-		GridPane gridPane = new GridPane();
+		GridPane gridPaneNumber = new GridPane();
+		GridPane gridPaneStatus = new GridPane();
+		VBox controlPane = new VBox();
+		HBox display = new HBox();
 		
 		// Option für eine Schlaufe wenn mehrere Tippmöglichkeiten integriert werden.
-		LotteryTicket t1 =  new LotteryTicket();
-		buttons = t1.getLotteryButton();
-		gridPane.add(t1.getLotteryTicket(), 0, 0);
+		t1 =  new LotteryTicket();
+		gridPaneNumber.add(t1.getLotteryTicket(), 0, 0);
+		
+		
+		
+		// Status Display
+		lLottoSelected = new Label();
+		lLottoSelected.setText(translator.getString("program.main.statusDisplay.lLottoSelected"));
+		lLottoSelectedStatus = new Label();
+		lLottoMachine = new Label();
+		lLottoMachine.setText(translator.getString("program.main.statusDisplay.lLottoMachine"));
+		lLottoMachineStatus = new Label();
+		gridPaneStatus.add(lLottoSelected, 1, 0);
+		gridPaneStatus.add(lLottoSelectedStatus, 2, 0);
+		gridPaneStatus.add(lLottoMachine, 1, 1);
+		gridPaneStatus.add(lLottoMachineStatus, 2, 1);
+		controlPane.getChildren().add(gridPaneStatus);
+		//Play Game Button
+		play = new Button();
+		play.setText(translator.getString("program.main.button.play"));
+		play.setDisable(true);
+		play.getStyleClass().add("buttonPlay");
+		
+		controlPane.getChildren().add(play);
+		
+		display.getChildren().add(gridPaneNumber);
+		display.getChildren().add(controlPane);
 		
 		BorderPane root = new BorderPane();
 		
 		// Erstellung Scene
 		root.setTop(menuBar);
-		root.setCenter(gridPane);
+		root.setCenter(display);
 		root.setBottom(status);
 		
 		Scene scene = new Scene(root);
-		//scene.getStylesheets().add(getClass().getResource("Client.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("Client.css").toExternalForm());
 		return scene;
 	}
 	
@@ -108,5 +143,8 @@ public class ClientView extends View<ClientModel> {
 		help.setText(translator.getString("program.menu.help"));
 		helpHelp.setText(translator.getString("program.menu.help.help"));
 		helpAbout.setText(translator.getString("program.menu.help.about"));
+		lLottoSelected.setText(translator.getString("program.main.statusDisplay.play"));
+		lLottoMachine.setText(translator.getString("program.main.statusDisplay.play"));
+		play.setText(translator.getString("program.main.button.play"));
 	}
 }
