@@ -25,14 +25,22 @@ public class PropertiesView {
 	Translator translator = servicelocator.getTranslator();
 	Configuration config = servicelocator.getConfiguration();
 	
-	Label lLanguage = new Label();
-	Label lUser = new Label();
-	TextField fUser = new TextField();
-	Button bSave = new Button();
-	Button bCancel = new Button();
-	ComboBox comboBox;
-	Label lJackpot = new Label();
-	TextField fJackpot = new TextField();
+	protected Label lLanguage = new Label();
+	protected Label lUser = new Label();
+	protected TextField fUser = new TextField();
+	protected Button bSave = new Button();
+	protected Button bCancel = new Button();
+	protected ComboBox comboBox;
+	protected Label lJackpot = new Label();
+	protected TextField fJackpot = new TextField();
+	protected Label lMaxNumber = new Label();
+	protected TextField fMaxNumber = new TextField();
+	protected Label lSelectNumber = new Label();
+	protected TextField fSelectNumber= new TextField();
+	protected Label lMaxSupernumber = new Label();
+	protected TextField fMaxSuperNumber = new TextField();
+	protected Label lSelectSuperNumber = new Label();
+	protected TextField fSelectSuperNumber = new TextField();
 	
 	private PropertiesModel model;
 	private Stage stage;
@@ -46,6 +54,7 @@ public class PropertiesView {
 		stage.setTitle(translator.getString("program.properties.titel"));
 		BorderPane root = new BorderPane();
 		GridPane gridPain = new GridPane();
+
 		gridPain.setPadding(new Insets(10,10,10,10));
 		gridPain.setVgap(10);
 		gridPain.setHgap(10);
@@ -55,7 +64,7 @@ public class PropertiesView {
 		fUser.setText(config.getOption("User"));
 		lJackpot.setText(translator.getString("program.properties.lJackpot"));
 		fJackpot.setText(config.getOption("Jackpot"));
-		
+
 		bSave.setText(translator.getString("program.properties.bSave"));
 		bCancel.setText(translator.getString("program.properties.bCancel"));
 		
@@ -68,14 +77,31 @@ public class PropertiesView {
 		comboBox = new ComboBox(language);
 		comboBox.setValue(config.getOption("Language"));
 		
+		lMaxNumber.setText(translator.getString("program.properties.lMaxNumber"));
+		fMaxNumber.setText(config.getOption("MaxNumber"));
+		lSelectNumber.setText(translator.getString("program.properties.lSelectNumber"));
+		fSelectNumber.setText(config.getOption("SelectNumber"));
+		lMaxSupernumber.setText(translator.getString("program.properties.lMaxSuperNumber"));
+		fMaxSuperNumber.setText(config.getOption("MaxSuperNumber"));
+		lSelectSuperNumber.setText(translator.getString("program.properties.lSelectSuperNumber"));
+		fSelectSuperNumber.setText(config.getOption("SelectSuperNumber"));
+		
 		gridPain.add(lLanguage,0,0);
 		gridPain.add(comboBox, 1, 0);
 		gridPain.add(lUser, 0, 1);
 		gridPain.add(fUser, 1, 1);
 		gridPain.add(lJackpot, 0, 2);
-		gridPain.add(fJackpot, 1, 2);
-		gridPain.add(bSave, 0, 3);
-		gridPain.add(bCancel, 1, 3);
+		gridPain.add(fJackpot, 1, 2);	
+		gridPain.add(lMaxNumber, 0, 3);
+		gridPain.add(fMaxNumber, 1, 3);
+		gridPain.add(lSelectNumber, 0, 4);
+		gridPain.add(fSelectNumber, 1, 4);
+		gridPain.add(lMaxSupernumber, 0, 5);
+		gridPain.add(fMaxSuperNumber, 1, 5);
+		gridPain.add(lSelectSuperNumber, 0, 6);
+		gridPain.add(fSelectSuperNumber, 1, 6);
+		gridPain.add(bSave, 0, 7);
+		gridPain.add(bCancel, 1, 7);
 		
 		root.setCenter(gridPain);
 		
@@ -103,9 +129,13 @@ public class PropertiesView {
 		stage.setTitle(translator.getString("program.properties.titel"));
 		lLanguage.setText(translator.getString("program.properties.lLanguage"));
 		lUser.setText(translator.getString("program.properties.lUser"));
-		lUser.setText(translator.getString("program.properties.lJackpot"));
+		lJackpot.setText(translator.getString("program.properties.lJackpot"));
+		lMaxNumber.setText(translator.getString("program.properties.lMaxNumber"));
+		lSelectNumber.setText(translator.getString("program.properties.lSelectNumber"));
+		lMaxSupernumber.setText(translator.getString("program.properties.lMaxSuperNumber"));
+		lSelectSuperNumber.setText(translator.getString("program.properties.lSelectSuperNumber"));
 		bSave.setText(translator.getString("program.properties.bSave"));
-		bCancel.setText(translator.getString("program.properties.bCancel"));		
+		bCancel.setText(translator.getString("program.properties.bCancel"));
 	}
 	
 	public void updateTextsClientView() {
