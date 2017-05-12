@@ -31,6 +31,8 @@ public class PropertiesView {
 	Button bSave = new Button();
 	Button bCancel = new Button();
 	ComboBox comboBox;
+	Label lJackpot = new Label();
+	TextField fJackpot = new TextField();
 	
 	private PropertiesModel model;
 	private Stage stage;
@@ -51,6 +53,8 @@ public class PropertiesView {
 		lLanguage.setText(translator.getString("program.properties.lLanguage"));
 		lUser.setText(translator.getString("program.properties.lUser"));
 		fUser.setText(config.getOption("User"));
+		lJackpot.setText(translator.getString("program.properties.lJackpot"));
+		fJackpot.setText(config.getOption("Jackpot"));
 		
 		bSave.setText(translator.getString("program.properties.bSave"));
 		bCancel.setText(translator.getString("program.properties.bCancel"));
@@ -68,6 +72,8 @@ public class PropertiesView {
 		gridPain.add(comboBox, 1, 0);
 		gridPain.add(lUser, 0, 1);
 		gridPain.add(fUser, 1, 1);
+		gridPain.add(lJackpot, 0, 2);
+		gridPain.add(fJackpot, 1, 2);
 		gridPain.add(bSave, 0, 3);
 		gridPain.add(bCancel, 1, 3);
 		
@@ -97,6 +103,7 @@ public class PropertiesView {
 		stage.setTitle(translator.getString("program.properties.titel"));
 		lLanguage.setText(translator.getString("program.properties.lLanguage"));
 		lUser.setText(translator.getString("program.properties.lUser"));
+		lUser.setText(translator.getString("program.properties.lJackpot"));
 		bSave.setText(translator.getString("program.properties.bSave"));
 		bCancel.setText(translator.getString("program.properties.bCancel"));		
 	}

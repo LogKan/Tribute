@@ -28,6 +28,7 @@ public class PropertiesController {
 		view.bSave.setOnAction(Event -> {
 			serviceLocator.getConfiguration().setLocalOption("Language", view.comboBox.getSelectionModel().getSelectedItem().toString());
 			config.setLocalOption("User", view.fUser.getText());
+			config.setLocalOption("Jackpot", view.fJackpot.getText());
 			config.save();
 			view.stop();
 			view.updateTextsClientView();
