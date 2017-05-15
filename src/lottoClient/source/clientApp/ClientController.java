@@ -70,14 +70,14 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 
 		for(LotteryButton b : view.t1.getLotteryButton()){
 			b.setOnAction(Event -> {
-				this.buttonRule(b);
+				this.setSwitchNumber(b);
 				view.lLottoSelectedStatus.setText("blavl");
 			});
 		}
 		
 		for (LotteryButton b : view.t1.getSuperButton()){
 			b.setOnAction(Event -> {
-				this.setSwitch(b);
+				this.setSwitchSuperNumber(b);
 				view.lLottoSelectedStatus.setText("Blabla");
 			});
 		}
@@ -92,10 +92,10 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 	}
 
 	/**
-	 * Auswählen 6 Buttons mit Abwahl und neuwahl.
-	 * @param b LotteryButton Klasse
+	 * Wahl und abwahl der Nummern
+	 * @param LotteryButton
 	 */
-	private void buttonRule(LotteryButton b){
+	private void setSwitchNumber(LotteryButton b){
 
 			if(!b.getSelected()) {
 				view.t1.setSelectedLottoNumber(b);
@@ -106,25 +106,11 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 			}
 		this.setSwitchPlay();
 	}
-	
-	private void setSwitch(LotteryButton b){
-		/**
-		if(!view.t1.getSuperNumberSelectet()) {
-			if(!b.getSelected()) {
-				view.t1.setSelectSuperNumber(b);
-				b.switchSelected();		
-			} else {
-				view.t1.setDeselectSuperNumber(b);
-				b.switchSelected();
-			}
-		} else {
-			if(b.getSelected()) {
-			b.switchSelected();
-			view.t1.setDeselectSuperNumber(b);
-			}
-		}
-		this.setSwitchPlay();
-		**/
+	/**
+	 * Wahl und abwahl der Super-Nummern
+	 * @param LotteryButton
+	 */
+	private void setSwitchSuperNumber(LotteryButton b){
 		if(!b.getSelected()){
 			view.t1.setSelectSuperNumber(b);
 			b.switchSelected();
@@ -132,9 +118,12 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 			view.t1.setDeselectSuperNumber(b);
 			b.switchSelected();
 		}
-		
+		this.setSwitchPlay();
 	}
-
+	/**
+	 * Aktivierung oder deaktivierung des Play Buttons in der AppView.
+	 * Regel aufgrund ob alle Nummern und Super-Nummern erfasst wurden 
+	 */
 	private void setSwitchPlay(){
 		if(view.t1.setEnablePlayButton()) {
 			view.play.setDisable(false);

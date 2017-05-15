@@ -188,7 +188,7 @@ public class LotteryTicket extends GridPane{
 	 */
 	public boolean setEnablePlayButton(){
 		boolean play = false;
-		if(this.selectedLottoNumber.size() == this.maxNumber+this.maxSuperNumber)
+		if(this.selectedLottoNumber.size() == this.maxNumber && this.selectedSuperLottoNumber.size() == this.maxSuperNumber)
 			play = true;
 		return play;
 	}
