@@ -108,6 +108,7 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 	}
 	
 	private void setSwitch(LotteryButton b){
+		/**
 		if(!view.t1.getSuperNumberSelectet()) {
 			if(!b.getSelected()) {
 				view.t1.setSelectSuperNumber(b);
@@ -123,6 +124,15 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 			}
 		}
 		this.setSwitchPlay();
+		**/
+		if(!b.getSelected()){
+			view.t1.setSelectSuperNumber(b);
+			b.switchSelected();
+		} else {
+			view.t1.setDeselectSuperNumber(b);
+			b.switchSelected();
+		}
+		
 	}
 
 	private void setSwitchPlay(){

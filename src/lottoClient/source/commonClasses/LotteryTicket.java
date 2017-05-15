@@ -24,6 +24,7 @@ public class LotteryTicket extends GridPane{
 	private LotteryButton lotteryButtonNumber[] = new LotteryButton[Integer.parseInt(config.getOption("MaxNumber"))];
 	private LotteryButton lotteryButtonSuperNumber[] = new LotteryButton[Integer.parseInt(config.getOption("MaxSuperNumber"))];
 	private LinkedList<Integer> selectedLottoNumber = new LinkedList<>();
+	private LinkedList<Integer> selectedSuperLottoNumber = new LinkedList<>();
 	private boolean SuperNumberSelectet;
 	
 	// Anzahl zahlen
@@ -133,19 +134,27 @@ public class LotteryTicket extends GridPane{
 	}
 	
 	public void setSelectSuperNumber(LotteryButton b){
-		this.SuperNumberSelectet = true;
-		this.selectedLottoNumber.addLast(Integer.parseInt(b.getText()));
-		this.buttonStyleSwitcher(b);
+		if(getSwitchSuperNumberButton()) {
+			this.selectedSuperLottoNumber.add(Integer.parseInt(b.getText()));
+			this.buttonStyleSwitcher(b);
+		}
 	}
 	
 	public void setDeselectSuperNumber(LotteryButton b){
-		this.SuperNumberSelectet = false;
-		this.selectedLottoNumber.removeLast();
-		this.buttonStyleSwitcher(b);
+		if (this.selectedSuperLottoNumber.contains(Integer.parseInt(b.getText()))) {
+			this.selectedSuperLottoNumber.remove(this.selectedSuperLottoNumber.indexOf(Integer.parseInt(b.getText())));
+			this.buttonStyleSwitcher(b);
+		}
 	}
 	
-	public boolean getSuperNumberSelectet(){
-		return SuperNumberSelectet;
+	public boolean getSwitchSuperNumberButton(){
+		boolean result;
+		if(this.selectedSuperLottoNumber.size() < 1) {
+			result = true;
+		} else {
+			result = false; 
+		}
+		return result;
 	}
 	
 	/**
@@ -160,12 +169,13 @@ public class LotteryTicket extends GridPane{
 				b.setId("buttonLotto");
 			}
 		} else {
-			if(selectedLottoNumber.contains(Integer.parseInt(b.getText()))) {
+			if(selectedSuperLottoNumber.contains(Integer.parseInt(b.getText()))) {
 				b.setId("buttonLottoSelectedRadius");
 			} else {
 				b.setId("buttonLottoRadius");
 			}
 		}
+		logger.warning(this.selectedSuperLottoNumber.toString());
 	}
 	
 	/**
