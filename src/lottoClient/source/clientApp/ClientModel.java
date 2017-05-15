@@ -25,7 +25,7 @@ public class ClientModel extends Model{
 		
 	}
 	
-	public void setLottoWinNumber(LotteryTicket lotteryTicket){
+	public LottoMashine setLottoWinNumber(LotteryTicket lotteryTicket){
 		LottoMashine lottoMashine = new LottoMashine();
 		winNumber = new LinkedList<>();
 		winSuperNumber = new LinkedList<>();
@@ -45,6 +45,7 @@ public class ClientModel extends Model{
 				}
 			}
 		}
+		return lottoMashine;
 	}
 	/**
 	 * Übereinstimmende normale Zahlen zwischen Auswahl und LottoMaschine

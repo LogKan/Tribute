@@ -27,15 +27,18 @@ public class LotteryTicket extends GridPane{
 	private boolean SuperNumberSelectet;
 	
 	// Anzahl zahlen
-	private final int maxNumber = 6;
-	private final int maxSuperNumber = 1;
+	private int maxNumber;
+	private int maxSuperNumber;
 	
 	
 	/**
 	 * Konstruktor für das Lotto Nummernfeld.
 	 */
 	public LotteryTicket() {
-		
+		// Definierung Anzahl maximaler Selektionen
+		this.maxNumber = Integer.parseInt(config.getOption("SelectNumber"));
+		this.maxSuperNumber = Integer.parseInt(config.getOption("SelectSuperNumber"));
+		// Scene Elemente
 		this.lotteryNumber = new GridPane();
 		this.lotteryNumber.setPadding(new Insets(10));
 		this.lotteryNumber.setVgap(5);

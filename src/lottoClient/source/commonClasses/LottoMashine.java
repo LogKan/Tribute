@@ -12,41 +12,45 @@ public class LottoMashine {
 	
 	ServiceLocator serviceLocator = ServiceLocator.getServiceLocator();
 	Logger logger = serviceLocator.getLogger();
+	Configuration config = serviceLocator.getConfiguration();
 	
 	// Wie viele Zahlen werden gezogen.
-	private int sizeLottoNumber = 6;
+	private int sizeLottoNumber = Integer.parseInt(config.getOption("SelectNumber"));
 	// Anzahl Bälle in der Trommel
-	private int counterBall = 42;
+	private int counterBall = Integer.parseInt(config.getOption("MaxNumber"));
+	// Wie viele Super-Zahlen werden gezogen.
+	private int sizeLottoSuperNumber = Integer.parseInt(config.getOption("SelectSuperNumber"));
 	// Eine Superzahl von 1 bis Definierter wert.
-	private int superCounter = 6;
+	private int counterSuperBall = Integer.parseInt(config.getOption("MaxSuperNumber"));
+	
 	private int lottoNumber;
 	private int superNumber;
 	private LinkedList<Integer> lottoNumberList = new LinkedList<>();
+	private LinkedList<Integer> lottoSuperNumberList = new LinkedList<>();
 	private Random rand = new Random();
 	
 	/**
 	 * generieren von Zufallszahlen anhand der Vorgabe.
-	 * Die Letzte Zahl entspricht der Superzahl 1-6
+	 * Die Letzte Zahl entspricht der definierten Superzahl.
 	 * @param counter Anzahl Zahlen welche in der Lotto Trommel sind.
 	 */
 	public LottoMashine(){
-		for (int i=0; i<sizeLottoNumber;i++){
-			lottoNumber = rand.nextInt(counterBall)+1;
-			if(lottoNumberList.contains(lottoNumber)) {
+		for (int i=0; i<this.sizeLottoNumber;i++){
+			this.lottoNumber = rand.nextInt(this.counterBall)+1;
+			if(this.lottoNumberList.contains(this.lottoNumber)) {
 				i--;
 			} else {
-				lottoNumberList.add(lottoNumber);
+				this.lottoNumberList.add(lottoNumber);
 			}
 		}
-		lottoNumberList.addLast(superNumber);
-		logger.info("Lotto Machine: "+this.lottoNumberList.toString());
-	}
-	
-	/**
-	 * Superzahl generator 1-6
-	 */
-	{
-		superNumber = rand.nextInt(superCounter)+1;
+		for (int i=0; i<this.sizeLottoSuperNumber;i++){
+			this.superNumber = rand.nextInt(this.counterSuperBall)+1;
+			if(this.lottoSuperNumberList.contains(this.superNumber)) {
+				i--;
+			} else {
+				this.lottoSuperNumberList.add(superNumber);
+			}
+		}
 	}
 
 	/**
@@ -58,5 +62,16 @@ public class LottoMashine {
 	}
 	
 	
+	@Override
+	public String toString() {
+		String toString = "";
+		for (int i : this.lottoNumberList){
+			toString += " ["+i+"]";
+		}
+		for (int i : this.lottoSuperNumberList){
+			toString += " [S-"+i+"]";
+		}
+		return toString;
+	}
 
 }
