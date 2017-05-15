@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -21,10 +22,10 @@ public class ProbabilityView extends View<ProbabilityModel>{
 	protected Logger logger;
 	protected Configuration config;
 	
-	private int countLottoNumber;
 	private int countSelectedLottoNumber;
-	private int countLottoSuperNumber;
 	private int countSelectedSuperLottoNumber;
+	
+	public Button bClosed;
 	
 	
 
@@ -38,9 +39,7 @@ public class ProbabilityView extends View<ProbabilityModel>{
 		serviceLocator = serviceLocator.getServiceLocator();
 		config = serviceLocator.getConfiguration();
 		
-		this.countLottoNumber = Integer.parseInt(config.getOption("MaxNumber"));
 		this.countSelectedLottoNumber = Integer.parseInt(config.getOption("SelectNumber"));
-		this.countLottoSuperNumber = Integer.parseInt(config.getOption("MaxSuperNumber"));
 		this.countSelectedSuperLottoNumber = Integer.parseInt(config.getOption("SelectSuperNumber"));
 		
 		
@@ -69,6 +68,10 @@ public class ProbabilityView extends View<ProbabilityModel>{
 		box.setAlignment(Pos.CENTER);
 		root.setAlignment(title, Pos.CENTER);
 		root.setCenter(box);
+		bClosed = new Button();
+		bClosed.setText("Closed");
+		root.setBottom(bClosed);
+		root.setAlignment(bClosed, Pos.TOP_CENTER);
 		
 		
 		

@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 import lottoClient.source.clientApp.ClientController;
 import lottoClient.source.clientApp.ClientModel;
 import lottoClient.source.clientApp.ClientView;
-import lottoClient.source.commonClasses.Probability;
 import lottoClient.source.commonClasses.ServiceLocator;
 import lottoClient.source.splashScreen.SplashController;
 import lottoClient.source.splashScreen.SplashModel;

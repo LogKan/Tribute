@@ -8,5 +8,7 @@ public class ProbabilityController extends Controller<ProbabilityModel, Probabil
 		super(model, view);
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 }

@@ -14,7 +14,6 @@ import lottoClient.source.abstractClasses.Controller;
 import lottoClient.source.commonClasses.Configuration;
 import lottoClient.source.commonClasses.LotteryButton;
 import lottoClient.source.commonClasses.LottoMashine;
-import lottoClient.source.commonClasses.Probability;
 import lottoClient.source.commonClasses.ServiceLocator;
 import lottoClient.source.commonClasses.Translator;
 import lottoClient.source.helpWindow.Help;
