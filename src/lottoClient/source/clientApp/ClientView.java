@@ -26,6 +26,7 @@ public class ClientView extends View<ClientModel> {
 	public MenuItem fileProperties;
 	public MenuItem fileExit;
 	public Menu window;
+	public MenuItem windowProbability;
 	public MenuItem windowSize;
 	public Menu help;
 	public MenuItem helpHelp;
@@ -60,6 +61,8 @@ public class ClientView extends View<ClientModel> {
 		fileExit = new MenuItem(translator.getString("program.menu.file.exit"));
 		
 		window = new Menu(translator.getString("program.menu.window"));
+		windowProbability = new MenuItem();
+		windowProbability.setText(translator.getString("program.menu.window.windowProbability"));
 		windowSize = new MenuItem();
 		if (stage.isFullScreen() == false)
 		{
@@ -73,7 +76,7 @@ public class ClientView extends View<ClientModel> {
 		helpAbout = new MenuItem(translator.getString("program.menu.help.about"));
 		
 		file.getItems().addAll(fileProperties,fileExit);
-		window.getItems().addAll(windowSize);
+		window.getItems().addAll(windowProbability, windowSize);
 		
 		help.getItems().addAll(helpHelp,helpAbout);
 		
@@ -121,7 +124,8 @@ public class ClientView extends View<ClientModel> {
 		root.setCenter(display);
 		root.setBottom(status);
 		
-		Scene scene = new Scene(root);
+		// Erstellen der Scene (node, L, H)
+		Scene scene = new Scene(root, 600,400);
 		scene.getStylesheets().add(getClass().getResource("Client.css").toExternalForm());
 		return scene;
 	}
@@ -134,6 +138,7 @@ public class ClientView extends View<ClientModel> {
 		fileProperties.setText(translator.getString("program.menu.file.properties"));
 		fileExit.setText(translator.getString("program.menu.file.exit"));
 		window.setText(translator.getString("program.menu.window"));
+		windowProbability.setText(translator.getString("program.menu.window.windowProbability"));
 		if (stage.isFullScreen() == false)
 		{
 			windowSize.setText(translator.getString("program.menu.window.fullScreen"));
@@ -143,8 +148,8 @@ public class ClientView extends View<ClientModel> {
 		help.setText(translator.getString("program.menu.help"));
 		helpHelp.setText(translator.getString("program.menu.help.help"));
 		helpAbout.setText(translator.getString("program.menu.help.about"));
-		lLottoSelected.setText(translator.getString("program.main.statusDisplay.play"));
-		lLottoMachine.setText(translator.getString("program.main.statusDisplay.play"));
+		lLottoSelected.setText(translator.getString("program.main.statusDisplay.lLottoSelected"));
+		lLottoMachine.setText(translator.getString("program.main.statusDisplay.lLottoMachine"));
 		play.setText(translator.getString("program.main.button.play"));
 	}
 }

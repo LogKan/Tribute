@@ -4,15 +4,11 @@
 	-fx-background-color: #FFFFFF;
 }
 
-.buttonLotto {
+#buttonLotto {
 	-fx-pref-width: 35px;
 	-fx-pref-height: 35px;
 	-fx-background-color: #FFFFFF;
 	-fx-border-color: #FF0000;
-}
-
-.buttonLotto:hover {
-	 -fx-font-weight: bold;
 }
 
 #buttonLottoSelected {
@@ -25,11 +21,25 @@
 	-fx-border-color: #FF0000;
 }
 
-#buttonLotto {
+#buttonLottoRadius{
+	-fx-background-radius: 5em;
 	-fx-pref-width: 35px;
 	-fx-pref-height: 35px;
 	-fx-background-color: #FFFFFF;
-	-fx-border-color: #FF0000;
+	-fx-border-color: #FF0000; 
+	-fx-border-radius: 100;
+}
+
+#buttonLottoSelectedRadius {
+	-fx-background-radius: 5em;
+	-fx-pref-width: 35px;
+	-fx-pref-height: 35px;
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: #FF0000; 
+	-fx-border-radius: 100;
+	-fx-background-image: url('selected.jpeg');
+	-fx-background-repeat: no-repeat;
+  	-fx-background-position: center;
 }
 
 .buttonPlay {

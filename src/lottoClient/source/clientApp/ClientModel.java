@@ -3,38 +3,60 @@ package lottoClient.source.clientApp;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+
 import lottoClient.source.abstractClasses.Model;
 import lottoClient.source.commonClasses.LotteryButton;
+import lottoClient.source.commonClasses.LotteryTicket;
+import lottoClient.source.commonClasses.LottoMashine;
 import lottoClient.source.commonClasses.ServiceLocator;
 
 
 public class ClientModel extends Model{
 	
-	ServiceLocator serviceLocator = ServiceLocator.getServiceLocator();
-	Logger logger = serviceLocator.getLogger();
-	// Anzahl zahlen
-	private final int size= 6;
+	private LinkedList<Integer> winNumber;
+	private LinkedList<Integer> winSuperNumber;
 	
-	private LinkedList<Integer> selectedLottoNumber = new LinkedList<>();
-	private boolean maxSeleted;
+	// Anzahl zahlen
+	private final int maxNumber= 6;
+	private final int maxSuperNumber= 1;
 
 	public ClientModel(){
 		
 	}
 	
-	
+	public void setLottoWinNumber(LotteryTicket lotteryTicket){
+		LottoMashine lottoMashine = new LottoMashine();
+		winNumber = new LinkedList<>();
+		winSuperNumber = new LinkedList<>();
+		
+		for(int i=0; i < this.maxNumber ; i++){
+			for(int j=0; j < this.maxNumber ; j++) {
+				if(lottoMashine.getLotto().get(i) == lotteryTicket.getSelectedLottoNumber().get(j)){
+					winNumber.add((Integer) lottoMashine.getLotto().get(i));
+				}
+			}
+		}
+		for(int i=this.maxNumber-1; i < this.maxNumber+this.maxSuperNumber ; i++){
+			for(int j=this.maxNumber-1; j < this.maxNumber+this.maxSuperNumber ; j++) {
+				if(lottoMashine.getLotto().get(i) == lotteryTicket.getSelectedLottoNumber().get(j)){
+					winSuperNumber.add((Integer) lottoMashine.getLotto().get(i));
+				}
+			}
+		}
+	}
 	/**
-	 * Übergabe der Liste mit den selektierten lottonummern.
+	 * Übereinstimmende normale Zahlen zwischen Auswahl und LottoMaschine
 	 * @return LinkedList
 	 */
-	public LinkedList getSelectedLottoNumber(){
-		return this.selectedLottoNumber;
+	public LinkedList getWinNumber(){
+		return winNumber;
 	}
-	
-	public void getWin(){
-		
+	/**
+	 * Übereinstimmende super Zahlen zwischen Auswahl und LottoMaschine
+	 * @return LinkedList
+	 */
+	public LinkedList getWinSuperNumber(){
+		return winSuperNumber;
 	}
-	
-	
-
 }

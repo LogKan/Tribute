@@ -85,6 +85,10 @@ public class PropertiesView {
 		fMaxSuperNumber.setText(config.getOption("MaxSuperNumber"));
 		lSelectSuperNumber.setText(translator.getString("program.properties.lSelectSuperNumber"));
 		fSelectSuperNumber.setText(config.getOption("SelectSuperNumber"));
+		fMaxNumber.setDisable(true);
+		fSelectNumber.setDisable(true);
+		fMaxSuperNumber.setDisable(true);
+		fSelectSuperNumber.setDisable(true);
 		
 		gridPain.add(lLanguage,0,0);
 		gridPain.add(comboBox, 1, 0);

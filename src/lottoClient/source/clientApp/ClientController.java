@@ -1,14 +1,24 @@
 package lottoClient.source.clientApp;
 
+import java.util.LinkedList;
+import java.util.Locale;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import lottoClient.LottoClientApp;
 import lottoClient.source.abstractClasses.Controller;
+import lottoClient.source.commonClasses.Configuration;
 import lottoClient.source.commonClasses.LotteryButton;
 import lottoClient.source.commonClasses.LottoMashine;
+import lottoClient.source.commonClasses.Probability;
 import lottoClient.source.commonClasses.ServiceLocator;
 import lottoClient.source.commonClasses.Translator;
 import lottoClient.source.helpWindow.Help;
+import lottoClient.source.probabilityWindow.ProbabilityWindow;
 import lottoClient.source.propertiesWindow.PropertiesController;
 import lottoClient.source.propertiesWindow.PropertiesModel;
 import lottoClient.source.propertiesWindow.PropertiesView;
@@ -24,6 +34,9 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 		serviceLocator = serviceLocator.getServiceLocator();
 		translator = serviceLocator.getTranslator();
 		
+		view.windowProbability.setOnAction(Event -> {
+			new ProbabilityWindow();
+		});
 		
 		view.windowSize.setOnAction(Event -> {
 			view.setSize();
@@ -65,13 +78,16 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 		
 		for (LotteryButton b : view.t1.getSuperButton()){
 			b.setOnAction(Event -> {
-				System.out.println("Hurtz "+b.getText());
+				this.setSwitch(b);
+				view.lLottoSelectedStatus.setText(view.t1.getSelectedLottoNumber().toString());
 			});
 		}
 	
 		view.play.setOnAction(Event -> {
-			LottoMashine lottoMashine = new LottoMashine();
-			view.lLottoMachineStatus.setText(lottoMashine.getLotto().toString());
+			model.setLottoWinNumber(view.t1);
+			System.out.println(model.getWinNumber().toString());
+			System.out.println("Super: "+model.getWinSuperNumber().toString());
+			//view.lLottoMachineStatus.setText(lottoMashine.getLotto().toString());
 		});
 		
 	}
@@ -81,29 +97,41 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 	 * @param b LotteryButton Klasse
 	 */
 	private void buttonRule(LotteryButton b){
-		if(!view.t1.getMaxSelectedLottoNumber()) {
+
 			if(!b.getSelected()) {
-				view.t1.setSelectedLottoNumber(Integer.parseInt(b.getText()));
+				view.t1.setSelectedLottoNumber(b);
 				b.switchSelected();
-				b.setId("buttonLottoSelected");
 			} else {
-				view.t1.setDeselectedLottoNumber(Integer.parseInt(b.getText()));
+				view.t1.setDeselectedLottoNumber(b);
 				b.switchSelected();
-				b.setId("buttonLotto");
 			}
-			if (view.t1.getMaxSelectedLottoNumber())  {
-				view.play.setDisable(false);
+		this.setSwitchPlay();
+	}
+	
+	private void setSwitch(LotteryButton b){
+		if(!view.t1.getSuperNumberSelectet()) {
+			if(!b.getSelected()) {
+				view.t1.setSelectSuperNumber(b);
+				b.switchSelected();		
+			} else {
+				view.t1.setDeselectSuperNumber(b);
+				b.switchSelected();
 			}
 		} else {
 			if(b.getSelected()) {
-				view.t1.setDeselectedLottoNumber(Integer.parseInt(b.getText()));
-				b.switchSelected();
-				b.setId("buttonLotto");
-				view.t1.setMaxSelectedLottoNumber();
-				view.play.setDisable(true);
+			b.switchSelected();
+			view.t1.setDeselectSuperNumber(b);
 			}
-		}	
+		}
+		this.setSwitchPlay();
 	}
 
+	private void setSwitchPlay(){
+		if(view.t1.setEnablePlayButton()) {
+			view.play.setDisable(false);
+		} else {
+			view.play.setDisable(true);
+		}
+	}
 
 }
