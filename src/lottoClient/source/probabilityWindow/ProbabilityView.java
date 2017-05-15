@@ -25,10 +25,8 @@ public class ProbabilityView extends View<ProbabilityModel>{
 	private int countSelectedLottoNumber;
 	private int countSelectedSuperLottoNumber;
 	
-	public Button bClosed;
+	protected Button bClosed;
 	
-	
-
 	protected ProbabilityView(Stage stage, ProbabilityModel model) {
 		super(stage, model);
 

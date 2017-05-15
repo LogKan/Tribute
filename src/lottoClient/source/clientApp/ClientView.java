@@ -22,22 +22,22 @@ import lottoClient.source.commonClasses.Translator;
 public class ClientView extends View<ClientModel> {
 	
 	
-	public Menu file;
-	public MenuItem fileProperties;
-	public MenuItem fileExit;
-	public Menu window;
-	public MenuItem windowProbability;
-	public MenuItem windowSize;
-	public Menu help;
-	public MenuItem helpHelp;
-	public MenuItem helpAbout;	
-	public Label status;
-	public Label lLottoSelected;
-	public Label lLottoSelectedStatus;
-	public Label lLottoMachine;
-	public Label lLottoMachineStatus;
-	public Button play;
-	public LotteryTicket t1;
+	protected Menu file;
+	protected MenuItem fileProperties;
+	protected MenuItem fileExit;
+	protected Menu window;
+	protected MenuItem windowProbability;
+	protected MenuItem windowSize;
+	protected Menu help;
+	protected MenuItem helpHelp;
+	protected MenuItem helpAbout;	
+	protected Label status;
+	protected Label lLottoSelected;
+	protected Label lLottoSelectedStatus;
+	protected Label lLottoMachine;
+	protected Label lLottoMachineStatus;
+	protected Button play;
+	protected LotteryTicket t1;
 
 	public ClientView(Stage stage, ClientModel model) {
 		super(stage, model);	
