@@ -28,8 +28,8 @@ public class LotteryTicket extends GridPane{
 	private boolean SuperNumberSelectet;
 	
 	// Anzahl zahlen
-	private final int maxNumber= 6;
-	private final int maxSuperNumber= 1;
+	private final int maxNumber = 6;
+	private final int maxSuperNumber = 1;
 	
 	
 	/**
@@ -108,7 +108,7 @@ public class LotteryTicket extends GridPane{
 	 * @param number Nummer für hinzufügen in der Liste
 	 */
 	public void setSelectedLottoNumber(LotteryButton b){
-			if(selectedLottoNumber.size() < this.getSize()) {
+			if(selectedLottoNumber.size() < this.maxNumber) {
 			selectedLottoNumber.addFirst(Integer.parseInt(b.getText()));
 			this.buttonStyleSwitcher(b);
 		}
@@ -116,7 +116,7 @@ public class LotteryTicket extends GridPane{
 	
 	/**
 	 * Löschen einer Nummer aus der Liste LottoNummern
-	 * @param number Nummer welche aus der Liste gelöscht wird
+	 * @param Button
 	 */
 	public void setDeselectedLottoNumber(LotteryButton b){
 		if(this.selectedLottoNumber.indexOf(Integer.parseInt(b.getText()))>=0) {
@@ -124,15 +124,11 @@ public class LotteryTicket extends GridPane{
 			this.buttonStyleSwitcher(b);	
 		}
 	}
-
-	/**
-	 * Übergabe der Liste mit den selektierten lottonummern.
-	 * @return LinkedList
-	 */
-	public LinkedList getSelectedLottoNumber(){
-		return this.selectedLottoNumber;
-	}
 	
+	/**
+	 * Hinzufügen einer Nummer in die Liste LottoSuperNummern
+	 * @param LotteryButton
+	 */
 	public void setSelectSuperNumber(LotteryButton b){
 		if(getSwitchSuperNumberButton()) {
 			this.selectedSuperLottoNumber.add(Integer.parseInt(b.getText()));
@@ -140,6 +136,10 @@ public class LotteryTicket extends GridPane{
 		}
 	}
 	
+	/**
+	 * Löschen einer Nummer aus der Liste LottoSuperNummern
+	 * @param LotteryButton
+	 */
 	public void setDeselectSuperNumber(LotteryButton b){
 		if (this.selectedSuperLottoNumber.contains(Integer.parseInt(b.getText()))) {
 			this.selectedSuperLottoNumber.remove(this.selectedSuperLottoNumber.indexOf(Integer.parseInt(b.getText())));
@@ -147,19 +147,24 @@ public class LotteryTicket extends GridPane{
 		}
 	}
 	
+	/**
+	 * Auswerten ob die Maximalanzahl an Supernummern gewählt wurde.
+	 * true = Maximum erreicht | false = maximum noch nicht erreicht. 
+	 * @return boolean
+	 */
 	public boolean getSwitchSuperNumberButton(){
 		boolean result;
-		if(this.selectedSuperLottoNumber.size() < 1) {
+		if(this.selectedSuperLottoNumber.size() < this.maxSuperNumber) {
 			result = true;
 		} else {
 			result = false; 
 		}
 		return result;
-	}
+}
 	
 	/**
-	 * Style Switsch
-	 * @param Button
+	 * Ansicht des LotteryButton situativ anpassen für Selektierung.
+	 * @param LotteryButton
 	 */
 	private void buttonStyleSwitcher (LotteryButton b){
 		if(b.getTyp().equals("number")) {
@@ -175,20 +180,12 @@ public class LotteryTicket extends GridPane{
 				b.setId("buttonLottoRadius");
 			}
 		}
-		logger.warning(this.selectedSuperLottoNumber.toString());
 	}
 	
 	/**
-	 * 
-	 * @return aktueller size Wert unter Berücksichtigung der Superzahl;
+	 * Aktivieren des Play Button wen Parameter erfüllt sind.
+	 * @return boolean
 	 */
-	private int getSize(){
-		int newSize = this.maxNumber;
-		if(SuperNumberSelectet)
-			newSize += this.maxSuperNumber;
-		return newSize;
-	}
-	
 	public boolean setEnablePlayButton(){
 		boolean play = false;
 		if(this.selectedLottoNumber.size() == this.maxNumber+this.maxSuperNumber)

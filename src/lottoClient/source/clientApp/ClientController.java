@@ -71,14 +71,14 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 		for(LotteryButton b : view.t1.getLotteryButton()){
 			b.setOnAction(Event -> {
 				this.buttonRule(b);
-				view.lLottoSelectedStatus.setText(view.t1.getSelectedLottoNumber().toString());
+				view.lLottoSelectedStatus.setText("blavl");
 			});
 		}
 		
 		for (LotteryButton b : view.t1.getSuperButton()){
 			b.setOnAction(Event -> {
 				this.setSwitch(b);
-				view.lLottoSelectedStatus.setText(view.t1.getSelectedLottoNumber().toString());
+				view.lLottoSelectedStatus.setText("Blabla");
 			});
 		}
 	
