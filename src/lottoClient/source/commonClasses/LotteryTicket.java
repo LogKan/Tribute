@@ -2,9 +2,8 @@ package lottoClient.source.commonClasses;
 
 import java.util.LinkedList;
 import java.util.logging.Logger;
-
+import java.util.Iterator;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 /**
  * Erzeugen eines Feldes für die Auswahl von den Lottozahlen per Mausklick.
@@ -208,5 +207,22 @@ public class LotteryTicket extends GridPane{
 		return this.selectedSuperLottoNumber;
 	}
 	
+	/**
+	 * 
+	 * @return String
+	 */
+	public String getSelectedLottoNumberString(){
+		String getString="";
+		for(Integer i : this.selectedLottoNumber){
+			getString += " ["+i+"]";
+		}
+		if(this.selectedSuperLottoNumber.size()>0){
+			for(Integer i : this.selectedSuperLottoNumber){
+				getString += " [S-"+i+"]";
+			}	
+		}
+		
+		return getString;
+	}
 	
 }
