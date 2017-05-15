@@ -37,9 +37,10 @@ public class ClientModel extends Model{
 				}
 			}
 		}
-		for(int i=this.maxNumber-1; i < this.maxNumber+this.maxSuperNumber ; i++){
-			for(int j=this.maxNumber-1; j < this.maxNumber+this.maxSuperNumber ; j++) {
-				if(lottoMashine.getLotto().get(i) == lotteryTicket.getSelectedLottoNumber().get(j)){
+		
+		for(int i=0; i < this.maxSuperNumber ; i++){
+			for(int j=0; j < this.maxSuperNumber ; j++) {
+				if(lottoMashine.getLotto().get(i) == lotteryTicket.getSelectedSuperLottoNumber().get(j)){
 					winSuperNumber.add((Integer) lottoMashine.getLotto().get(i));
 				}
 			}

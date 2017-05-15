@@ -193,4 +193,20 @@ public class LotteryTicket extends GridPane{
 		return play;
 	}
 	
+	/**
+	 * Liste aller Selektierten Nummern ohne Super-Nummern
+	 * @return LinkedList
+	 */
+	public LinkedList getSelectedLottoNumber(){
+		return this.selectedLottoNumber;
+	}
+	 /**
+	  *  * Liste aller Selektierten Super-Nummern
+	  * @return LinkedList
+	  */
+	public LinkedList getSelectedSuperLottoNumber(){
+		return this.selectedSuperLottoNumber;
+	}
+	
+	
 }
