@@ -54,11 +54,19 @@ public class LottoMashine {
 	}
 
 	/**
-	 * Rückgabe der Liste mit allen per Zuvall erstellt Zahlen
+	 * Rückgabe der Liste mit allen per Zuvall erstellt Zahlen ohne Super-Zahlen
 	 * @return LinkedList 
 	 */
 	public LinkedList getLotto(){
-		return lottoNumberList;		
+		return this.lottoNumberList;		
+	}
+	
+	/**
+	 * Rückgabe der Liste mit allen per Zuvall erstellt Super-Zahlen
+	 * @return LinkedList 
+	 */
+	public LinkedList getLottoSuper(){
+		return this.lottoSuperNumberList;		
 	}
 	
 	
@@ -66,10 +74,10 @@ public class LottoMashine {
 	public String toString() {
 		String toString = "";
 		for (int i : this.lottoNumberList){
-			toString += " ["+i+"]";
+			toString += " "+i;
 		}
 		for (int i : this.lottoSuperNumberList){
-			toString += " [S-"+i+"]";
+			toString += " S-"+i;
 		}
 		return toString;
 	}

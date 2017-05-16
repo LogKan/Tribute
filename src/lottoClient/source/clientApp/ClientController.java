@@ -84,7 +84,8 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 	
 		view.play.setOnAction(Event -> {
 			view.lLottoMachineStatus.setText(model.setLottoWinNumber(view.t1).toString());
-			view.lWinNumberStatus.setText(model.getWinNumber().toString()+" "+"Super: "+model.getWinSuperNumber().toString());
+			view.lWinNumberStatus.setText(model.getWinNumberString());
+			view.lWinNumberCountStatus.setText(model.getWinCountString());
 		});
 		
 	}

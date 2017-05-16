@@ -40,8 +40,8 @@ public class ClientModel extends Model{
 		
 		for(int i=0; i < this.maxSuperNumber ; i++){
 			for(int j=0; j < this.maxSuperNumber ; j++) {
-				if(lottoMashine.getLotto().get(i) == lotteryTicket.getSelectedSuperLottoNumber().get(j)){
-					winSuperNumber.add((Integer) lottoMashine.getLotto().get(i));
+				if(lottoMashine.getLottoSuper().get(i) == lotteryTicket.getSelectedSuperLottoNumber().get(j)){
+					winSuperNumber.add((Integer) lottoMashine.getLottoSuper().get(i));
 				}
 			}
 		}
@@ -61,4 +61,40 @@ public class ClientModel extends Model{
 	public LinkedList getWinSuperNumber(){
 		return winSuperNumber;
 	}
+	
+	/**
+	 * Ausgabe der Korrekten Nummern
+	 * @return String
+	 */
+	public String getWinNumberString(){
+		String result="";
+		for(int i : this.winNumber){
+			result += " "+i;
+		}
+		for(int i : this.winSuperNumber){
+			result += " S-"+i;
+		}
+		return result;
+	}
+	
+	/**
+	 * Anzahl korrekte Nummer
+	 * @return String
+	 */
+	public String getWinCountString(){
+		String result=" ";
+		if (this.winNumber.size()>0) {
+			result += "N: "+this.winNumber.size();
+		}else{
+			result += "N: 0";
+		}
+		if (this.winSuperNumber.size()>0) {
+			result += " S: "+this.winSuperNumber.size();
+		}else{
+			result += " S: 0";
+		}
+		return result;
+	}
+	
 }
+
