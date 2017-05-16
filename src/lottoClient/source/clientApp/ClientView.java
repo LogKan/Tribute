@@ -36,6 +36,10 @@ public class ClientView extends View<ClientModel> {
 	protected Label lLottoSelectedStatus;
 	protected Label lLottoMachine;
 	protected Label lLottoMachineStatus;
+	protected Label lWinNumber;
+	protected Label lWinNumberStatus;
+	protected Label lWinNumberCount;
+	protected Label lWinNumberCountStatus;
 	protected Button play;
 	protected LotteryTicket t1;
 
@@ -95,22 +99,32 @@ public class ClientView extends View<ClientModel> {
 		
 		
 		// Status Display
-		lLottoSelected = new Label();
-		lLottoSelected.setText(translator.getString("program.main.statusDisplay.lLottoSelected"));
-		lLottoSelectedStatus = new Label();
-		lLottoMachine = new Label();
-		lLottoMachine.setText(translator.getString("program.main.statusDisplay.lLottoMachine"));
-		lLottoMachineStatus = new Label();
-		gridPaneStatus.add(lLottoSelected, 1, 0);
-		gridPaneStatus.add(lLottoSelectedStatus, 2, 0);
-		gridPaneStatus.add(lLottoMachine, 1, 1);
-		gridPaneStatus.add(lLottoMachineStatus, 2, 1);
+		this.lLottoSelected = new Label();
+		this.lLottoSelected.setText(translator.getString("program.main.statusDisplay.lLottoSelected"));
+		this.lLottoSelectedStatus = new Label();
+		this.lLottoMachine = new Label();
+		this.lLottoMachine.setText(translator.getString("program.main.statusDisplay.lLottoMachine"));
+		this.lLottoMachineStatus = new Label();
+		this.lWinNumber = new Label();
+		this.lWinNumber.setText(translator.getString("program.main.statusDisplay.lWinNumber"));
+		this.lWinNumberStatus = new Label();
+		this.lWinNumberCount = new Label();
+		this.lWinNumberCount.setText(translator.getString("program.main.statusDisplay.lWinNumberCount"));
+		this.lWinNumberCountStatus = new Label();
+		gridPaneStatus.add(this.lLottoSelected, 1, 0);
+		gridPaneStatus.add(this.lLottoSelectedStatus, 2, 0);
+		gridPaneStatus.add(this.lLottoMachine, 1, 1);
+		gridPaneStatus.add(this.lLottoMachineStatus, 2, 1);
+		gridPaneStatus.add(this.lWinNumber, 1, 2);
+		gridPaneStatus.add(this.lWinNumberStatus, 2, 2);
+		gridPaneStatus.add(this.lWinNumberCount, 1, 3);
+		gridPaneStatus.add(this.lWinNumberCountStatus, 2, 3);
 		controlPane.getChildren().add(gridPaneStatus);
 		//Play Game Button
-		play = new Button();
-		play.setText(translator.getString("program.main.button.play"));
-		play.setDisable(true);
-		play.getStyleClass().add("buttonPlay");
+		this.play = new Button();
+		this.play.setText(translator.getString("program.main.button.play"));
+		this.play.setDisable(true);
+		this.play.getStyleClass().add("buttonPlay");
 		
 		controlPane.getChildren().add(play);
 		
