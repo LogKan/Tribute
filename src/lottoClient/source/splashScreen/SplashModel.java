@@ -1,8 +1,12 @@
 package lottoClient.source.splashScreen;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.FileHandler;
+import java.util.logging.Formatter;
 import java.util.logging.Handler;
 import java.util.logging.Level;
+import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 
@@ -11,6 +15,7 @@ import lottoClient.source.abstractClasses.Model;
 import lottoClient.source.commonClasses.Configuration;
 import lottoClient.source.commonClasses.ServiceLocator;
 import lottoClient.source.commonClasses.Translator;
+import sun.rmi.log.LogHandler;
 
 /**
  * Copyright 2015, FHNW, Prof. Dr. Brad Richards. All rights reserved. This code
@@ -94,6 +99,23 @@ public class SplashModel extends Model{
 	                    1000000, 3);
 	            logHandler.setLevel(Level.FINEST);
 	            ourLogger.addHandler(logHandler);
+	            logHandler.setFormatter(new Formatter() {
+					
+					@Override
+					public String format(LogRecord record) {
+						String result="";
+						if(record.getLevel().intValue() >= Level.WARNING.intValue()){
+							result += "ATTENTION!: ";
+						}
+						SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+						Date d = new Date(record.getMillis());
+						result += df.format(d)+" ";
+						result += "["+record.getLevel()+"] ";
+						result += this.formatMessage(record);
+						result += "\r\n";
+						return result;
+					}
+				});
 	        } catch (Exception e) { // If we are unable to create log files
 	            throw new RuntimeException("Unable to initialize log files: "
 	                    + e.toString());
