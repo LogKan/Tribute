@@ -23,6 +23,7 @@ public class LottoClientApp extends Application {
 
 	
 	public static void main(String[] args) {
+		System.out.println(LottoClientApp.class.getResource("swiss_lotto_logo.png"));
 		launch(args);
 	}
 	
@@ -60,7 +61,6 @@ public class LottoClientApp extends Application {
 		
 		view.start();
 		serviceLocator.getLogger().info("Client App Start" );
-		
 	}
 	
 	 public void stop() {

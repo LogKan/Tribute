@@ -1,0 +1,15 @@
+#splashScreen{
+	-fx-background-image: url("file:/C:/Users/Kaneda/git/Tribute/bin/lottoClient/swiss_lotto_logo.png");
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;   
+    -fx-background-size: 300 97;
+    -fx-background-position: center center;
+}
+
+.progress-bar > .bar {
+	-fx-background-color: blue;
+}
+
+#progressbox  {
+	-fx-alignment: center;
+}

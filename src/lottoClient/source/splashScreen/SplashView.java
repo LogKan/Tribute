@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -31,17 +32,19 @@ public class SplashView extends View<SplashModel>{
 	protected Scene createGUI() {
 		BorderPane root = new BorderPane();
 		root.setId("splashScreen");
+		//String test = "-fx-background-image: url(\"file:/C:/Users/Kaneda/git/Tribute/bin/lottoClient/%s\")";
+		//root.setStyle();
 		
 		lblStatus = new Label("Please Wait");
-		root.setCenter(lblStatus);
 		
 		progress = new ProgressBar();
-		HBox bottomBox = new HBox();
+		VBox bottomBox = new VBox();
 		bottomBox.setId("progressbox");
+		bottomBox.getChildren().add(lblStatus);
 		bottomBox.getChildren().add(progress);
 		root.setBottom(bottomBox);
 		
-		Scene scene = new Scene(root, 300, 300, Color.TRANSPARENT);
+		Scene scene = new Scene(root, 300, 170, Color.TRANSPARENT);
 		scene.getStylesheets().addAll(
 				this.getClass().getResource("splash.css").toExternalForm());
 		
