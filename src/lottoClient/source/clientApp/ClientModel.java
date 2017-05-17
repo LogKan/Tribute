@@ -14,6 +14,9 @@ import lottoClient.source.commonClasses.ServiceLocator;
 
 public class ClientModel extends Model{
 	
+	ServiceLocator serviceLocator = ServiceLocator.getServiceLocator();
+	Logger logger = serviceLocator.getLogger();
+	
 	private LinkedList<Integer> winNumber;
 	private LinkedList<Integer> winSuperNumber;
 	
@@ -45,6 +48,7 @@ public class ClientModel extends Model{
 				}
 			}
 		}
+		logger.info("LottoMashine: "+lottoMashine);
 		return lottoMashine;
 	}
 	/**
@@ -69,11 +73,12 @@ public class ClientModel extends Model{
 	public String getWinNumberString(){
 		String result="";
 		for(int i : this.winNumber){
-			result += " "+i;
+			result += " "+String.format("%02d", i);
 		}
 		for(int i : this.winSuperNumber){
-			result += " S-"+i;
+			result += " S-"+String.format("%02d", i);
 		}
+		logger.info("Win Numbers: "+result);
 		return result;
 	}
 	

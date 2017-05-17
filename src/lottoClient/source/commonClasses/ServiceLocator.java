@@ -76,6 +76,5 @@ public class ServiceLocator {
     
     public void setTranslator(Translator translator) {
         this.translator = translator;
-    }
-    
+    }    
 }

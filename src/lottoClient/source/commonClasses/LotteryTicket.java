@@ -217,11 +217,11 @@ public class LotteryTicket extends GridPane{
 	public String getSelectedLottoNumberString(){
 		String getString="";
 		for(Integer i : this.selectedLottoNumber){
-			getString += " "+i;
+			getString += " "+String.format("%02d", i);
 		}
 		if(this.selectedSuperLottoNumber.size()>0){
 			for(Integer i : this.selectedSuperLottoNumber){
-				getString += " S-"+i;
+				getString += " S-"+String.format("%02d", i);
 			}	
 		}
 		

@@ -69,15 +69,17 @@ public class LottoMashine {
 		return this.lottoSuperNumberList;		
 	}
 	
-	
+	/**
+	 * toString Methode mit den gozogenen Nummern 
+	 */
 	@Override
 	public String toString() {
 		String toString = "";
 		for (int i : this.lottoNumberList){
-			toString += " "+i;
+			toString += " "+String.format("%02d", i);
 		}
 		for (int i : this.lottoSuperNumberList){
-			toString += " S-"+i;
+			toString += " S-"+String.format("%02d", i);
 		}
 		return toString;
 	}
