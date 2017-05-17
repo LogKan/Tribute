@@ -24,7 +24,7 @@ public class HelpView {
 		this.stage = stage;
 		
 		stage.setTitle("Help Window");
-		Scene scene = new Scene(new Browser(),750,500, Color.web("#666970"));
+		Scene scene = new Scene(new Browser(HelpView.class.getResource("index.html").toString()),250,500, Color.web("#666970"));
 		stage.setScene(scene);
 	}
 	

@@ -17,6 +17,7 @@ import javafx.scene.web.WebView;
  * Copyright oOracle
  * JavaFX Documentation Home
  * http://docs.oracle.com/javafx/2/webview/jfxpub-webview.htm
+ * @author oOracle
  */
 
 public class Browser extends Region {
@@ -29,7 +30,11 @@ public class Browser extends Region {
 	final WebView browser = new WebView();
     final WebEngine webEngine = browser.getEngine();
     
-    public Browser(){
+    /**
+     * Erzegung eines Browsers
+     * @param url2 Seiten URL
+     */
+    public Browser(String url2){
     	serviceLocator = ServiceLocator.getServiceLocator();
     	logger = serviceLocator.getLogger();
     	
@@ -38,7 +43,7 @@ public class Browser extends Region {
         getStyleClass().add("browser");
         // load the web page
         try {
-			url = new URL("https://www.google.ch");
+			url = new URL(url2);
 		} catch (MalformedURLException e) {
 			logger.warning("Error URL");
 		}
