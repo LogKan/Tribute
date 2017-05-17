@@ -10,7 +10,7 @@ public class LotteryButton extends Button {
 	 * Werte für Type:
 	 * number
 	 * superNumber
-	 * @author Kaneda
+	 * @author Fernando Stutz
 	 *
 	 */
 	private String name;
