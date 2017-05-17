@@ -93,7 +93,8 @@ public class SplashModel extends Model{
 	        Logger ourLogger = Logger.getLogger(serviceLocator.getAPP_NAME());
 	        ourLogger.setLevel(Level.FINEST);
 	        
-	        // Add a file handler, putting the rotating files in the tmp directory
+	        // Add a file handler, putting the rotating files in the tmp directory 
+	        // "%u" a unique number to resolve conflicts, "%g" the generation number to distinguish rotated logs 
 	        try {
 	            Handler logHandler = new FileHandler("/%h"+serviceLocator.getAPP_NAME() + "_%u" + "_%g" + ".log",
 	                    1000000, 3);
