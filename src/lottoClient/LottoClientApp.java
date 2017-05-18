@@ -23,7 +23,7 @@ public class LottoClientApp extends Application {
 
 	
 	public static void main(String[] args) {
-		System.out.println(LottoClientApp.class.getResource("swiss_lotto_logo.png"));
+		ServiceLocator.getServiceLocator().setRessourceLogo(LottoClientApp.class.getResource("swiss_lotto_logo.png").toString());
 		launch(args);
 	}
 	

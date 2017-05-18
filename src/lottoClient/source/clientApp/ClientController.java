@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import lottoClient.LottoClientApp;
 import lottoClient.source.abstractClasses.Controller;
@@ -65,6 +66,7 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 			about.setTitle(translator.getString("program.menu.help.about.titel"));
 			about.setHeaderText(translator.getString("program.menu.help.about.titel.header"));
 			about.setContentText(translator.getString("program.menu.help.about.titel.message"));
+			about.setGraphic(new ImageView(serviceLocator.getRessourceLogo().toString()));
 			about.showAndWait();
 		});
 

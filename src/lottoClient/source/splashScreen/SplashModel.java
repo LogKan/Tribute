@@ -35,6 +35,7 @@ public class SplashModel extends Model{
 	 final Task<Void> initializer = new Task<Void>() {
 		@Override
 		protected Void call() throws Exception {
+			
 			this.updateProgress(1, 7);
 			// Methoden und Werte welche bearbeitet werden sollten im loading werden hier eingetragen!!
 			

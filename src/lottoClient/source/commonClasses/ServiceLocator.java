@@ -23,6 +23,7 @@ public class ServiceLocator {
 	// Application-global constants
     final private Class<?> APP_CLASS = LottoClientApp.class;
     final private String APP_NAME = APP_CLASS.getSimpleName();
+    private String ressourceLogo;
 
     // Unterstütze Sprachen (for translations)
     final private Locale[] locales = new Locale[] { new Locale("en"), new Locale("de") };
@@ -76,5 +77,13 @@ public class ServiceLocator {
     
     public void setTranslator(Translator translator) {
         this.translator = translator;
-    }    
+    }
+    
+    public void setRessourceLogo(String ressource){
+    	this.ressourceLogo = ressource;
+    }
+    
+    public String getRessourceLogo(){
+    	return this.ressourceLogo;
+    }
 }

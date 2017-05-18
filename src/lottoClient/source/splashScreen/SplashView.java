@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lottoClient.source.abstractClasses.View;
+import lottoClient.source.commonClasses.ServiceLocator;
 
 /**
  * Copyright 2015, FHNW, Prof. Dr. Brad Richards. All rights reserved. This code
@@ -32,7 +33,7 @@ public class SplashView extends View<SplashModel>{
 	protected Scene createGUI() {
 		BorderPane root = new BorderPane();
 		root.setId("splashScreen");
-		//String test = "-fx-background-image: url(\"file:/C:/Users/Kaneda/git/Tribute/bin/lottoClient/%s\")";
+		root.setStyle(String.format("-fx-background-image: url(\"%-1s\")", ServiceLocator.getServiceLocator().getRessourceLogo()));
 		//root.setStyle();
 		
 		lblStatus = new Label("Please Wait");
