@@ -41,6 +41,7 @@ public class PropertiesView {
 	protected TextField fMaxSuperNumber = new TextField();
 	protected Label lSelectSuperNumber = new Label();
 	protected TextField fSelectSuperNumber = new TextField();
+	protected Label lStatus = new Label();
 	
 	private PropertiesModel model;
 	private Stage stage;
@@ -85,11 +86,12 @@ public class PropertiesView {
 		fMaxSuperNumber.setText(config.getOption("MaxSuperNumber"));
 		lSelectSuperNumber.setText(translator.getString("program.properties.lSelectSuperNumber"));
 		fSelectSuperNumber.setText(config.getOption("SelectSuperNumber"));
+		/**
 		fMaxNumber.setDisable(true);
 		fSelectNumber.setDisable(true);
 		fMaxSuperNumber.setDisable(true);
 		fSelectSuperNumber.setDisable(true);
-		
+		**/
 		gridPain.add(lLanguage,0,0);
 		gridPain.add(comboBox, 1, 0);
 		gridPain.add(lUser, 0, 1);
@@ -108,6 +110,7 @@ public class PropertiesView {
 		gridPain.add(bCancel, 1, 7);
 		
 		root.setCenter(gridPain);
+		root.setBottom(lStatus);
 		
 		
 		Scene scene = new Scene(root);

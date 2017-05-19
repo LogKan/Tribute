@@ -26,6 +26,7 @@ public class PropertiesController {
 		});
 		
 		view.bSave.setOnAction(Event -> {
+			if(model.getNumber(view).equals("")) {
 			serviceLocator.getConfiguration().setLocalOption("Language", view.comboBox.getSelectionModel().getSelectedItem().toString());
 			config.setLocalOption("User", view.fUser.getText());
 			config.setLocalOption("Jackpot", view.fJackpot.getText());
@@ -36,6 +37,8 @@ public class PropertiesController {
 			config.save();
 			view.stop();
 			view.updateTextsClientView();
+			}
+			view.lStatus.setText(model.getNumber(view));
 		});
 		
 		view.bCancel.setOnAction(Event -> {
