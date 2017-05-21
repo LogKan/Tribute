@@ -1,7 +1,5 @@
 package ticTacTo.source.abstractClasses;
 
-import java.util.logging.Logger;
-
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lottoClient.source.commonClasses.ServiceLocator;
