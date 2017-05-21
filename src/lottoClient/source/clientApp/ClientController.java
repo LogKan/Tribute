@@ -18,7 +18,6 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 	
 	ServiceLocator serviceLocator;
 	Translator translator;
-	Boolean probability = false;
 
 	public ClientController(ClientModel model, ClientView view) {
 		super(model, view);
@@ -27,10 +26,7 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 		translator = serviceLocator.getTranslator();
 		
 		view.windowProbability.setOnAction(Event -> {
-			if(!probability) {
 				new ProbabilityWindow();
-				//this.probability = true;
-			}
 		});
 		
 		view.windowSize.setOnAction(Event -> {

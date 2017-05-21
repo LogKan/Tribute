@@ -1,6 +1,7 @@
 package lottoClient.source.probabilityWindow;
 
 import javafx.stage.Stage;
+import lottoClient.source.clientApp.ClientController;
 
 public class ProbabilityWindow extends Thread {	
 	
@@ -15,11 +16,11 @@ public class ProbabilityWindow extends Thread {
 		this.model = new ProbabilityModel();
 		this.view = new ProbabilityView(stage, model);
 		this.controller = new ProbabilityController(model, view);
-		this.view.start();	
-	}
-	
-	public void msg(){
+		this.view.start();
 		
-	}
-	
+		view.getStage().setOnCloseRequest(Event ->{
+		
+		});
+		
+	}		
 }
