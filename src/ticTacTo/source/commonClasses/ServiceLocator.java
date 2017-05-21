@@ -2,8 +2,7 @@ package ticTacTo.source.commonClasses;
 
 import java.util.Locale;
 import java.util.logging.Logger;
-
-import lottoClient.LottoClientApp;
+import ticTacTo.TicTacTo;
 
 /**
  * Copyright 2015, FHNW, Prof. Dr. Brad Richards. All rights reserved. This code
@@ -22,7 +21,7 @@ public class ServiceLocator {
 	
 	// Application-global constants
 	private static int count;
-    final private Class<?> APP_CLASS = LottoClientApp.class;
+    final private Class<?> APP_CLASS = TicTacTo.class;
     final private String APP_NAME = APP_CLASS.getSimpleName();
 
     // Unterstütze Sprachen (for translations)
