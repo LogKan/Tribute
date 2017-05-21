@@ -88,6 +88,7 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 			view.lLottoMachineStatus.setText(model.setLottoWinNumber(view.t1).toString());
 			view.lWinNumberStatus.setText(model.getWinNumberString());
 			view.lWinNumberCountStatus.setText(model.getWinCountString());
+			view.lCashWinStatus.setText(""+serviceLocator.getNumberFormatCash().format((model.getCashWin())));
 		});
 		
 	}

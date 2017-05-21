@@ -1,5 +1,6 @@
 package lottoClient.source.commonClasses;
 
+import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.logging.Logger;
 
@@ -21,9 +22,11 @@ public class ServiceLocator {
 	private static ServiceLocator serviceLocator;
 	
 	// Application-global constants
+	private static int count;
     final private Class<?> APP_CLASS = LottoClientApp.class;
     final private String APP_NAME = APP_CLASS.getSimpleName();
     private String ressourceLogo;
+    NumberFormat nf = NumberFormat.getCurrencyInstance();
 
     // Unterstütze Sprachen (for translations)
     final private Locale[] locales = new Locale[] { new Locale("en", "CH", "English"), new Locale("de", "CH", "German") };
@@ -44,15 +47,15 @@ public class ServiceLocator {
     }
     
     public Class<?> getAPP_CLASS() {
-        return APP_CLASS;
+        return this.APP_CLASS;
     }
     
     public String getAPP_NAME() {
-        return APP_NAME;
+        return this.APP_NAME;
     }
     
     public Logger getLogger() {
-        return logger;
+        return this.logger;
     }
 
     public void setLogger(Logger logger) {
@@ -60,7 +63,7 @@ public class ServiceLocator {
     }
     
     public Configuration getConfiguration() {
-        return configuration;
+        return this.configuration;
     }
 
     public void setConfiguration(Configuration configuration) {
@@ -85,5 +88,17 @@ public class ServiceLocator {
     
     public String getRessourceLogo(){
     	return this.ressourceLogo;
+    }
+    
+    public NumberFormat getNumberFormatCash(){
+    	return this.nf;
+    }
+    
+    public void setCount(){
+    	this.count++;
+    }
+    
+    public int getCount(){
+    	return this.count;
     }
 }

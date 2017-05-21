@@ -23,6 +23,9 @@ public class ClientModel extends Model{
 	// Anzahl zahlen
 	private final int maxNumber= 6;
 	private final int maxSuperNumber= 1;
+	private final int maxLottoWin6 = 1000000;
+	private final int maxLottoWin5 = 1000;
+	
 
 	public ClientModel(){
 		
@@ -48,7 +51,7 @@ public class ClientModel extends Model{
 				}
 			}
 		}
-		logger.info("LottoMashine: "+lottoMashine);
+		if(this.winNumber.size() >= 3) logger.info("LottoMashine: "+lottoMashine);
 		return lottoMashine;
 	}
 	/**
@@ -78,7 +81,7 @@ public class ClientModel extends Model{
 		for(int i : this.winSuperNumber){
 			result += " S-"+String.format("%02d", i);
 		}
-		logger.info("Win Numbers: "+result);
+		if(this.winNumber.size() >= 3) logger.info("Win Numbers: "+result);
 		return result;
 	}
 	
@@ -99,6 +102,35 @@ public class ClientModel extends Model{
 			result += " S: 0";
 		}
 		return result;
+	}
+	
+	/**
+	 * Berechnen des Gewinnes anhand des Jackpotes
+	 * @return double
+	 */
+	public double getCashWin(){
+		double CashWin = 0.0;
+		int jackpot = Integer.parseInt(serviceLocator.getConfiguration().getOption("Jackpot"));
+		if(this.winNumber.size() == 6 && this.winSuperNumber.size() == 1) CashWin = jackpot;
+		if(this.winNumber.size() == 6 && this.winSuperNumber.size() == 0)
+			if(jackpot > this.maxLottoWin6) {
+				CashWin = this.maxLottoWin6;
+			} else {
+				CashWin = jackpot*3.030303/100;
+			}
+		if(this.winNumber.size() == 5 && this.winSuperNumber.size() == 1) CashWin = jackpot*0.0303030/100;
+		if(this.winNumber.size() == 5 && this.winSuperNumber.size() == 0) 
+			if(jackpot > this.maxLottoWin5){
+			CashWin = this.maxLottoWin5;
+		} else {
+			CashWin = jackpot*0.003030/100;
+		}
+		if(this.winNumber.size() == 4 && this.winSuperNumber.size() == 1) CashWin = jackpot*0.0004545/100;
+		if(this.winNumber.size() == 4 && this.winSuperNumber.size() == 0) CashWin = jackpot*0.0002272/100;
+		if(this.winNumber.size() == 3 && this.winSuperNumber.size() == 1) CashWin = jackpot*0.0004545/100;
+		if(this.winNumber.size() == 3 && this.winSuperNumber.size() == 0) CashWin = jackpot*0.0000303/100;
+		if(this.winNumber.size() >= 3) logger.info("CashWin: "+serviceLocator.getNumberFormatCash().format(CashWin));
+		return CashWin;
 	}
 	
 }

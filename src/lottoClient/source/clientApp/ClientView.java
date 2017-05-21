@@ -58,8 +58,6 @@ public class ClientView extends View<ClientModel> {
 		ServiceLocator serviceLocator = ServiceLocator.getServiceLocator();
 		Logger logger = serviceLocator.getLogger();
 		Translator translator = serviceLocator.getTranslator();
-		NumberFormat nf = NumberFormat.getCurrencyInstance();
-		
 		
 		stage.setTitle(translator.getString("program.name"));
 		
@@ -118,7 +116,7 @@ public class ClientView extends View<ClientModel> {
 		this.lJackpot = new Label();
 		this.lJackpot.setText(translator.getString("program.main.statusDisplay.lJackpot"));
 		this.lJackpotStatus = new Label();
-		this.lJackpotStatus.setText(nf.format(Integer.parseInt(serviceLocator.getConfiguration().getOption("Jackpot"))));
+		this.lJackpotStatus.setText(serviceLocator.getNumberFormatCash().format(Integer.parseInt(serviceLocator.getConfiguration().getOption("Jackpot"))));
 		this.lCashWin = new Label();
 		this.lCashWin.setText(translator.getString("program.main.statusDisplay.lCashWin"));
 		this.lCashWinStatus = new Label();
