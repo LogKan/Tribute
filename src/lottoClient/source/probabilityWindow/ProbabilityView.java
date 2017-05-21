@@ -3,6 +3,7 @@ package lottoClient.source.probabilityWindow;
 
 import java.util.logging.Logger;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,13 +16,14 @@ import javafx.stage.Stage;
 import lottoClient.source.abstractClasses.View;
 import lottoClient.source.commonClasses.Configuration;
 import lottoClient.source.commonClasses.ServiceLocator;
+import lottoClient.source.commonClasses.Translator;
 
 public class ProbabilityView extends View<ProbabilityModel>{
 	
 	protected ServiceLocator serviceLocator;
 	protected Logger logger;
 	protected Configuration config;
-	
+	protected Translator translator;
 	private int countSelectedLottoNumber;
 	private int countSelectedSuperLottoNumber;
 	
@@ -34,8 +36,9 @@ public class ProbabilityView extends View<ProbabilityModel>{
 
 	@Override
 	protected Scene createGUI() {
-		serviceLocator = serviceLocator.getServiceLocator();
-		config = serviceLocator.getConfiguration();
+		this.serviceLocator = serviceLocator.getServiceLocator();
+		this.config = serviceLocator.getConfiguration();
+		this.translator = serviceLocator.getTranslator();
 		
 		this.countSelectedLottoNumber = Integer.parseInt(config.getOption("SelectNumber"));
 		this.countSelectedSuperLottoNumber = Integer.parseInt(config.getOption("SelectSuperNumber"));
@@ -47,8 +50,10 @@ public class ProbabilityView extends View<ProbabilityModel>{
 		HBox box = new HBox();
 		int counter = this.countSelectedLottoNumber * (this.countSelectedSuperLottoNumber+1);
 		
-		Label title = new Label("Lotto probability");
+		Label title = new Label(translator.getString("program.propbability.title"));
+		title.setId("title");
 		
+		gridPane.setPadding(new Insets(10));
 		gridPane.setVgap(10);
 		gridPane.setHgap(10);
 		
@@ -67,13 +72,12 @@ public class ProbabilityView extends View<ProbabilityModel>{
 		root.setAlignment(title, Pos.CENTER);
 		root.setCenter(box);
 		bClosed = new Button();
-		bClosed.setText("Closed");
+		bClosed.setText(translator.getString("program.propbability.button.closed"));
 		root.setBottom(bClosed);
 		root.setAlignment(bClosed, Pos.TOP_CENTER);
 		
-		
-		
-		Scene scene = new Scene(root,200,400);
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("probability.css").toExternalForm());
 		return scene;
 	}
 

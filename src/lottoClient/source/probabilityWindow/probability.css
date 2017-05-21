@@ -1,0 +1,28 @@
+/* Styles CSS Datei für LottoClientApp by Fernando Stutz */ 
+
+.root {
+	-fx-background-color: #FFFFFF;
+	-fx-padding: 15;
+    -fx-spacing: 10;
+	
+}
+
+.button{
+	-fx-pref-width: 100px;
+	-fx-pref-height: 35px;
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: #FF0000;
+	-fx-row-valignment: bottom;
+}
+
+.button:hover {
+	 -fx-font-weight: bold;
+}
+
+.button:pressed {
+	 -fx-border-color: #008000;
+}
+
+#title {
+	-fx-font-weight: bold;
+}

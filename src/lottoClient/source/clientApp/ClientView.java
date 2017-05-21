@@ -4,6 +4,10 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.logging.Logger;
 
+import com.sun.xml.internal.ws.dump.LoggingDumpTube.Position;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -88,17 +92,20 @@ public class ClientView extends View<ClientModel> {
 		
 		menuBar.getMenus().addAll(file, window, help);
 		
-		status = new Label("Status");
+		status = new Label();
 		GridPane gridPaneNumber = new GridPane();
 		GridPane gridPaneStatus = new GridPane();
+		gridPaneStatus.setVgap(13);
 		VBox controlPane = new VBox();
-		HBox display = new HBox();
+		controlPane.setPadding(new Insets(10));
+		VBox displayV = new VBox();
+		HBox displayH = new HBox();
+		displayV.setAlignment(Pos.CENTER);
+		displayH.setAlignment(Pos.CENTER);
 		
 		// Option für eine Schlaufe wenn mehrere Tippmöglichkeiten integriert werden.
 		t1 =  new LotteryTicket();
-		gridPaneNumber.add(t1.getLotteryTicket(), 0, 0);
-		
-		
+		gridPaneNumber.add(t1.getLotteryTicket(), 0, 0);		
 		
 		// Status Display
 		this.lLottoSelected = new Label();
@@ -110,6 +117,7 @@ public class ClientView extends View<ClientModel> {
 		this.lWinNumber = new Label();
 		this.lWinNumber.setText(translator.getString("program.main.statusDisplay.lWinNumber"));
 		this.lWinNumberStatus = new Label();
+		this.lWinNumberStatus.setMinWidth(150);
 		this.lWinNumberCount = new Label();
 		this.lWinNumberCount.setText(translator.getString("program.main.statusDisplay.lWinNumberCount"));
 		this.lWinNumberCountStatus = new Label();
@@ -133,6 +141,7 @@ public class ClientView extends View<ClientModel> {
 		gridPaneStatus.add(this.lJackpotStatus, 2, 4);
 		gridPaneStatus.add(this.lCashWin, 1, 5);
 		gridPaneStatus.add(this.lCashWinStatus, 2, 5);
+		gridPaneStatus.add(new Label(""), 1, 6);
 		controlPane.getChildren().add(gridPaneStatus);
 		//Play Game Button
 		this.play = new Button();
@@ -142,14 +151,16 @@ public class ClientView extends View<ClientModel> {
 		
 		controlPane.getChildren().add(play);
 		
-		display.getChildren().add(gridPaneNumber);
-		display.getChildren().add(controlPane);
+		
+		displayH.getChildren().add(gridPaneNumber);
+		displayH.getChildren().add(controlPane);
+		displayV.getChildren().add(displayH);
 		
 		BorderPane root = new BorderPane();
 		
 		// Erstellung Scene
 		root.setTop(menuBar);
-		root.setCenter(display);
+		root.setCenter(displayV);
 		root.setBottom(status);
 		
 		// Erstellen der Scene (node, L, H)
@@ -179,6 +190,9 @@ public class ClientView extends View<ClientModel> {
 		this.lLottoSelected.setText(translator.getString("program.main.statusDisplay.lLottoSelected"));
 		this.lLottoMachine.setText(translator.getString("program.main.statusDisplay.lLottoMachine"));
 		this.lJackpot.setText(translator.getString("program.main.statusDisplay.lJackpot"));
+		this.lWinNumber.setText(translator.getString("program.main.statusDisplay.lWinNumber"));
+		this.lWinNumberCount.setText(translator.getString("program.main.statusDisplay.lWinNumberCount"));
+		this.lCashWin.setText(translator.getString("program.main.statusDisplay.lCashWin"));
 		this.play.setText(translator.getString("program.main.button.play"));
 	}
 }
