@@ -1,5 +1,7 @@
 package lottoClient.source.clientApp;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.logging.Logger;
 
 import javafx.scene.Scene;
@@ -40,6 +42,10 @@ public class ClientView extends View<ClientModel> {
 	protected Label lWinNumberStatus;
 	protected Label lWinNumberCount;
 	protected Label lWinNumberCountStatus;
+	protected Label lJackpot;
+	protected Label lJackpotStatus;
+	protected Label lCashWin;
+	protected Label lCashWinStatus;
 	protected Button play;
 	protected LotteryTicket t1;
 
@@ -52,12 +58,10 @@ public class ClientView extends View<ClientModel> {
 		ServiceLocator serviceLocator = ServiceLocator.getServiceLocator();
 		Logger logger = serviceLocator.getLogger();
 		Translator translator = serviceLocator.getTranslator();
+		NumberFormat nf = NumberFormat.getCurrencyInstance();
+		
 		
 		stage.setTitle(translator.getString("program.name"));
-		
-		
-		
-		
 		
 		MenuBar menuBar = new MenuBar();
 		file = new Menu(translator.getString("program.menu.file"));
@@ -111,6 +115,14 @@ public class ClientView extends View<ClientModel> {
 		this.lWinNumberCount = new Label();
 		this.lWinNumberCount.setText(translator.getString("program.main.statusDisplay.lWinNumberCount"));
 		this.lWinNumberCountStatus = new Label();
+		this.lJackpot = new Label();
+		this.lJackpot.setText(translator.getString("program.main.statusDisplay.lJackpot"));
+		this.lJackpotStatus = new Label();
+		this.lJackpotStatus.setText(nf.format(Integer.parseInt(serviceLocator.getConfiguration().getOption("Jackpot"))));
+		this.lCashWin = new Label();
+		this.lCashWin.setText(translator.getString("program.main.statusDisplay.lCashWin"));
+		this.lCashWinStatus = new Label();
+	
 		gridPaneStatus.add(this.lLottoSelected, 1, 0);
 		gridPaneStatus.add(this.lLottoSelectedStatus, 2, 0);
 		gridPaneStatus.add(this.lLottoMachine, 1, 1);
@@ -119,6 +131,10 @@ public class ClientView extends View<ClientModel> {
 		gridPaneStatus.add(this.lWinNumberStatus, 2, 2);
 		gridPaneStatus.add(this.lWinNumberCount, 1, 3);
 		gridPaneStatus.add(this.lWinNumberCountStatus, 2, 3);
+		gridPaneStatus.add(this.lJackpot, 1, 4);
+		gridPaneStatus.add(this.lJackpotStatus, 2, 4);
+		gridPaneStatus.add(this.lCashWin, 1, 5);
+		gridPaneStatus.add(this.lCashWinStatus, 2, 5);
 		controlPane.getChildren().add(gridPaneStatus);
 		//Play Game Button
 		this.play = new Button();
@@ -148,22 +164,23 @@ public class ClientView extends View<ClientModel> {
 		Translator translator = ServiceLocator.getServiceLocator().getTranslator();
 
 		// The menu entries
-		file.setText(translator.getString("program.menu.file"));
-		fileProperties.setText(translator.getString("program.menu.file.properties"));
-		fileExit.setText(translator.getString("program.menu.file.exit"));
-		window.setText(translator.getString("program.menu.window"));
-		windowProbability.setText(translator.getString("program.menu.window.windowProbability"));
+		this.file.setText(translator.getString("program.menu.file"));
+		this.fileProperties.setText(translator.getString("program.menu.file.properties"));
+		this.fileExit.setText(translator.getString("program.menu.file.exit"));
+		this.window.setText(translator.getString("program.menu.window"));
+		this.windowProbability.setText(translator.getString("program.menu.window.windowProbability"));
 		if (stage.isFullScreen() == false)
 		{
-			windowSize.setText(translator.getString("program.menu.window.fullScreen"));
+			this.windowSize.setText(translator.getString("program.menu.window.fullScreen"));
 		} else {
-			windowSize.setText(translator.getString("program.menu.window.minimizeScreen"));
+			this.windowSize.setText(translator.getString("program.menu.window.minimizeScreen"));
 		}
-		help.setText(translator.getString("program.menu.help"));
-		helpHelp.setText(translator.getString("program.menu.help.help"));
-		helpAbout.setText(translator.getString("program.menu.help.about"));
-		lLottoSelected.setText(translator.getString("program.main.statusDisplay.lLottoSelected"));
-		lLottoMachine.setText(translator.getString("program.main.statusDisplay.lLottoMachine"));
-		play.setText(translator.getString("program.main.button.play"));
+		this.help.setText(translator.getString("program.menu.help"));
+		this.helpHelp.setText(translator.getString("program.menu.help.help"));
+		this.helpAbout.setText(translator.getString("program.menu.help.about"));
+		this.lLottoSelected.setText(translator.getString("program.main.statusDisplay.lLottoSelected"));
+		this.lLottoMachine.setText(translator.getString("program.main.statusDisplay.lLottoMachine"));
+		this.lJackpot.setText(translator.getString("program.main.statusDisplay.lJackpot"));
+		this.play.setText(translator.getString("program.main.button.play"));
 	}
 }

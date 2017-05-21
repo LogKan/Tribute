@@ -26,7 +26,7 @@ public class ServiceLocator {
     private String ressourceLogo;
 
     // Unterstütze Sprachen (for translations)
-    final private Locale[] locales = new Locale[] { new Locale("en"), new Locale("de") };
+    final private Locale[] locales = new Locale[] { new Locale("en", "CH", "English"), new Locale("de", "CH", "German") };
 
     //Resources
     private Logger logger;

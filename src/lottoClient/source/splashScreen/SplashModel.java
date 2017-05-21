@@ -55,7 +55,7 @@ public class SplashModel extends Model{
             
             // ... more resources would go here...
             this.updateProgress(6,  7);
-
+/**
 			// Beispielsschlaufe
 			Integer i = 0;
 	          for (; i < 1000000000; i++) {
@@ -63,6 +63,7 @@ public class SplashModel extends Model{
 	              this.updateProgress(i, 1000000000);
 	            }			
 	            this.updateProgress(7, 7);
+	            **/
 	            return null;
 		}
 		 
