@@ -1,20 +1,11 @@
 package lottoClient.source.clientApp;
 
-import java.util.LinkedList;
-import java.util.Locale;
-
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import lottoClient.LottoClientApp;
 import lottoClient.source.abstractClasses.Controller;
-import lottoClient.source.commonClasses.Configuration;
 import lottoClient.source.commonClasses.LotteryButton;
-import lottoClient.source.commonClasses.LottoMashine;
 import lottoClient.source.commonClasses.ServiceLocator;
 import lottoClient.source.commonClasses.Translator;
 import lottoClient.source.helpWindow.Help;
@@ -27,6 +18,7 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 	
 	ServiceLocator serviceLocator;
 	Translator translator;
+	Boolean probability = false;
 
 	public ClientController(ClientModel model, ClientView view) {
 		super(model, view);
@@ -35,7 +27,10 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 		translator = serviceLocator.getTranslator();
 		
 		view.windowProbability.setOnAction(Event -> {
-			new ProbabilityWindow();
+			if(!probability) {
+				new ProbabilityWindow();
+				//this.probability = true;
+			}
 		});
 		
 		view.windowSize.setOnAction(Event -> {
@@ -133,5 +128,4 @@ public class ClientController extends Controller<ClientModel, ClientView>{
 			view.play.setDisable(true);
 		}
 	}
-
 }
