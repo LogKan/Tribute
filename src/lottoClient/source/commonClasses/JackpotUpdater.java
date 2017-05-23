@@ -50,13 +50,13 @@ public class JackpotUpdater {
 			jackpot = lottoString.substring(intPosition+indexColummString.length()+1, lottoString.length()-2);
 			logger.info("Jackpot Web update successful"); 
 			} catch (Exception e) {
-
+				logger.warning("Connection Failed "+e);
 			} finally {
 				if(inReader !=  null)
 					try {
 						inReader.close();
 					} catch (IOException e) {
-						logger.warning("IOException at BufferedReader closing");
+						logger.warning("BufferedReader Faild "+e);
 					}
 					
 		}
