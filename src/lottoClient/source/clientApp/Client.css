@@ -53,7 +53,7 @@
 	-fx-row-valignment: bottom;
 }
 
-.buttonPlay: disabled {
+.buttonPlay:disabled {
 	-fx-background-color: #dcdcdc;
 	-fx-border-color: #dc143c;
 }
