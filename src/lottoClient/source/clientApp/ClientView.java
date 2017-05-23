@@ -27,7 +27,7 @@ import lottoClient.source.commonClasses.Translator;
 
 public class ClientView extends View<ClientModel> {
 	
-	
+	ServiceLocator serviceLocator;
 	protected Menu file;
 	protected MenuItem fileProperties;
 	protected MenuItem fileExit;
@@ -59,7 +59,7 @@ public class ClientView extends View<ClientModel> {
 
 	@Override
 	protected Scene createGUI() {
-		ServiceLocator serviceLocator = ServiceLocator.getServiceLocator();
+		serviceLocator = ServiceLocator.getServiceLocator();
 		Logger logger = serviceLocator.getLogger();
 		Translator translator = serviceLocator.getTranslator();
 		
@@ -170,6 +170,7 @@ public class ClientView extends View<ClientModel> {
 	}
 	
 	public void updateTexts() {
+		serviceLocator = ServiceLocator.getServiceLocator();
 		Translator translator = ServiceLocator.getServiceLocator().getTranslator();
 
 		// The menu entries
@@ -190,6 +191,7 @@ public class ClientView extends View<ClientModel> {
 		this.lLottoSelected.setText(translator.getString("program.main.statusDisplay.lLottoSelected"));
 		this.lLottoMachine.setText(translator.getString("program.main.statusDisplay.lLottoMachine"));
 		this.lJackpot.setText(translator.getString("program.main.statusDisplay.lJackpot"));
+		this.lJackpotStatus.setText(serviceLocator.getNumberFormatCash().format(Integer.parseInt(serviceLocator.getConfiguration().getOption("Jackpot"))));
 		this.lWinNumber.setText(translator.getString("program.main.statusDisplay.lWinNumber"));
 		this.lWinNumberCount.setText(translator.getString("program.main.statusDisplay.lWinNumberCount"));
 		this.lCashWin.setText(translator.getString("program.main.statusDisplay.lCashWin"));

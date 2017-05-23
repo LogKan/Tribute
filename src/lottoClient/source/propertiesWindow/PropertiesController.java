@@ -35,7 +35,7 @@ public class PropertiesController {
 			if(model.getNumber(view).equals("")) {
 			serviceLocator.getConfiguration().setLocalOption("Language", view.comboBox.getSelectionModel().getSelectedItem().toString());
 			config.setLocalOption("User", view.fUser.getText());
-			if (view.fJackpot.toString().length()<=10) {
+			if (view.fJackpot.getText().length() <= 10) {
 				config.setLocalOption("Jackpot", view.fJackpot.getText());
 			} else {
 				logger.warning("Japckpot to Big, he can't save");
