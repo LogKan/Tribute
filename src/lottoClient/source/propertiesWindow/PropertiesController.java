@@ -2,8 +2,10 @@ package lottoClient.source.propertiesWindow;
 
 import java.util.logging.Logger;
 
+import lottoClient.LottoClientApp;
 import lottoClient.source.clientApp.ClientView;
 import lottoClient.source.commonClasses.Configuration;
+import lottoClient.source.commonClasses.JackpotUpdater;
 import lottoClient.source.commonClasses.ServiceLocator;
 import lottoClient.source.commonClasses.Translator;
 
@@ -25,11 +27,19 @@ public class PropertiesController {
 			view.updateTexts();
 		});
 		
+		view.bUpdateJackpot.setOnAction(Event -> {
+			view.fJackpot.setText(JackpotUpdater.getJackpotUpdater().getJackpot());
+		});
+		
 		view.bSave.setOnAction(Event -> {
 			if(model.getNumber(view).equals("")) {
 			serviceLocator.getConfiguration().setLocalOption("Language", view.comboBox.getSelectionModel().getSelectedItem().toString());
 			config.setLocalOption("User", view.fUser.getText());
-			config.setLocalOption("Jackpot", view.fJackpot.getText());
+			if (view.fJackpot.toString().length()<=10) {
+				config.setLocalOption("Jackpot", view.fJackpot.getText());
+			} else {
+				logger.warning("Japckpot to Big, he can't save");
+			}
 			config.setLocalOption("MaxNumber", view.fMaxNumber.getText());
 			config.setLocalOption("SelectNumber", view.fSelectNumber.getText());
 			config.setLocalOption("MaxSuperNumber", view.fMaxSuperNumber.getText());

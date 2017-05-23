@@ -41,6 +41,7 @@ public class PropertiesView {
 	protected TextField fMaxSuperNumber = new TextField();
 	protected Label lSelectSuperNumber = new Label();
 	protected TextField fSelectSuperNumber = new TextField();
+	protected Button bUpdateJackpot = new Button();
 	protected Label lStatus = new Label();
 	
 	private PropertiesModel model;
@@ -65,7 +66,15 @@ public class PropertiesView {
 		fUser.setText(config.getOption("User"));
 		lJackpot.setText(translator.getString("program.properties.lJackpot"));
 		fJackpot.setText(config.getOption("Jackpot"));
-
+		bUpdateJackpot.setText("Web Update");
+		lMaxNumber.setText(translator.getString("program.properties.lMaxNumber"));
+		fMaxNumber.setText(config.getOption("MaxNumber"));
+		lSelectNumber.setText(translator.getString("program.properties.lSelectNumber"));
+		fSelectNumber.setText(config.getOption("SelectNumber"));
+		lMaxSupernumber.setText(translator.getString("program.properties.lMaxSuperNumber"));
+		fMaxSuperNumber.setText(config.getOption("MaxSuperNumber"));
+		lSelectSuperNumber.setText(translator.getString("program.properties.lSelectSuperNumber"));
+		fSelectSuperNumber.setText(config.getOption("SelectSuperNumber"));
 		bSave.setText(translator.getString("program.properties.bSave"));
 		bCancel.setText(translator.getString("program.properties.bCancel"));
 		
@@ -78,14 +87,7 @@ public class PropertiesView {
 		comboBox = new ComboBox(language);
 		comboBox.setValue(config.getOption("Language"));
 		
-		lMaxNumber.setText(translator.getString("program.properties.lMaxNumber"));
-		fMaxNumber.setText(config.getOption("MaxNumber"));
-		lSelectNumber.setText(translator.getString("program.properties.lSelectNumber"));
-		fSelectNumber.setText(config.getOption("SelectNumber"));
-		lMaxSupernumber.setText(translator.getString("program.properties.lMaxSuperNumber"));
-		fMaxSuperNumber.setText(config.getOption("MaxSuperNumber"));
-		lSelectSuperNumber.setText(translator.getString("program.properties.lSelectSuperNumber"));
-		fSelectSuperNumber.setText(config.getOption("SelectSuperNumber"));
+
 		/**
 		fMaxNumber.setDisable(true);
 		fSelectNumber.setDisable(true);
@@ -97,17 +99,18 @@ public class PropertiesView {
 		gridPain.add(lUser, 0, 1);
 		gridPain.add(fUser, 1, 1);
 		gridPain.add(lJackpot, 0, 2);
-		gridPain.add(fJackpot, 1, 2);	
-		gridPain.add(lMaxNumber, 0, 3);
-		gridPain.add(fMaxNumber, 1, 3);
-		gridPain.add(lSelectNumber, 0, 4);
-		gridPain.add(fSelectNumber, 1, 4);
-		gridPain.add(lMaxSupernumber, 0, 5);
-		gridPain.add(fMaxSuperNumber, 1, 5);
-		gridPain.add(lSelectSuperNumber, 0, 6);
-		gridPain.add(fSelectSuperNumber, 1, 6);
-		gridPain.add(bSave, 0, 7);
-		gridPain.add(bCancel, 1, 7);
+		gridPain.add(fJackpot, 1, 2);
+		gridPain.add(bUpdateJackpot, 1, 3);
+		gridPain.add(lMaxNumber, 0, 4);
+		gridPain.add(fMaxNumber, 1, 4);
+		gridPain.add(lSelectNumber, 0, 5);
+		gridPain.add(fSelectNumber, 1, 5);
+		gridPain.add(lMaxSupernumber, 0, 6);
+		gridPain.add(fMaxSuperNumber, 1, 6);
+		gridPain.add(lSelectSuperNumber, 0, 7);
+		gridPain.add(fSelectSuperNumber, 1, 7);
+		gridPain.add(bSave, 0, 8);
+		gridPain.add(bCancel, 1, 8);
 		
 		root.setCenter(gridPain);
 		root.setBottom(lStatus);

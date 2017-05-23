@@ -71,6 +71,11 @@ public class LottoClientApp extends Application {
 	        }
 	 }
 	 
+	 public void restart(){
+		 this.stop();
+		 this.startApp();
+	 }
+	 
 	 protected static LottoClientApp getMainProgram() {
 	        return mainApp;
 	    }

@@ -22,7 +22,6 @@ public class ServiceLocator {
 	private static ServiceLocator serviceLocator;
 	
 	// Application-global constants
-	private static int count;
     final private Class<?> APP_CLASS = LottoClientApp.class;
     final private String APP_NAME = APP_CLASS.getSimpleName();
     private String ressourceLogo;
@@ -35,6 +34,7 @@ public class ServiceLocator {
     private Logger logger;
     private Configuration configuration;
     private Translator translator;
+    private LottoClientApp app;
     
     public static ServiceLocator getServiceLocator() {
         if (serviceLocator == null)
@@ -92,13 +92,5 @@ public class ServiceLocator {
     
     public NumberFormat getNumberFormatCash(){
     	return this.nf;
-    }
-    
-    public void setCount(){
-    	this.count++;
-    }
-    
-    public int getCount(){
-    	return this.count;
     }
 }

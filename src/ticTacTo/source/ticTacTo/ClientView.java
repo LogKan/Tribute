@@ -71,10 +71,9 @@ public class ClientView extends View<ClientModel> {
 		this.playGround = new Button[9];
 		GridPane playGrid = new GridPane();		
 		for(int i=0 ; i < 9 ; i++) {
-			this.playGround[i] = new Button(i/3+"."+i%3);
-			this.playGround[i].setId(i%3+"."+i/3);
-			this.playGround[i].getStyleClass().add("bPlayGround");
-			
+			this.playGround[i] = new Button(" ");
+			this.playGround[i].setId(i/3+"."+i%3);
+			this.playGround[i].getStyleClass().add("bPlayGround");	
 			playGrid.add(this.playGround[i], i%3, i/3);
 		}
 		
