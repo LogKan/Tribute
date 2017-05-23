@@ -28,7 +28,7 @@ public class PropertiesController {
 		});
 		
 		view.bUpdateJackpot.setOnAction(Event -> {
-			view.fJackpot.setText(JackpotUpdater.getJackpotUpdater().getJackpot());
+			view.fJackpot.setText(serviceLocator.getJackpot());
 		});
 		
 		view.bSave.setOnAction(Event -> {

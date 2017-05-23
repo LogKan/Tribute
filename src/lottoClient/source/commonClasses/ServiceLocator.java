@@ -93,4 +93,8 @@ public class ServiceLocator {
     public NumberFormat getNumberFormatCash(){
     	return this.nf;
     }
+    
+    public String getJackpot(){
+    	return JackpotUpdater.getJackpotUpdater().getJackpot();
+    }
 }
