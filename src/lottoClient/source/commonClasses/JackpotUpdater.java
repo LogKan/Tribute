@@ -8,25 +8,21 @@ import java.net.URLConnection;
 import java.util.LinkedList;
 import java.util.logging.Logger;
 
-public class JackpotUpdater {
+public class JackpotUpdater extends Thread {
 	
 	private static JackpotUpdater jackpotUpdater;
 	private Logger logger;
 	private String urlString = "https://www.swisslos.ch/de/home.html";
 	private String indexRowString = "jackpot___value cf";
 	private String indexColummString = "data-jackpot=";
-	private String jackpot = "0";
+	private static String jackpot = "0";
 	
-    public static JackpotUpdater getJackpotUpdater() {
-        if (jackpotUpdater == null)
-        	jackpotUpdater = new JackpotUpdater();
-        return jackpotUpdater;
-    } 
-    
-    public JackpotUpdater(){
-    }
-	
-	private void setJackpotUpdate(){
+	public JackpotUpdater() {
+		
+	}
+
+	@Override
+	public void run() {
 		logger = ServiceLocator.getServiceLocator().getLogger();
 		URL url = null;
 		BufferedReader inReader = null;
@@ -61,10 +57,12 @@ public class JackpotUpdater {
 					
 		}
 	}
-	
-	public String getJackpot(){
-			this.setJackpotUpdate();					
-		return this.jackpot;		
+
+	@Override
+	public String toString() {
+		return this.jackpot;
 	}
+	
+	
 }
 	

@@ -6,6 +6,7 @@ import java.net.Socket;
 public class Client {
 	
 	private Socket socket; 
+	private String name;
 	
 	public Client (Socket socket){
 		this.socket = socket;
@@ -18,5 +19,12 @@ public class Client {
 			// Uninteresting
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Client [socket=" + socket + "]";
+	}
+	
+	
 
 }

@@ -95,6 +95,9 @@ public class ServiceLocator {
     }
     
     public String getJackpot(){
-    	return JackpotUpdater.getJackpotUpdater().getJackpot();
+    	JackpotUpdater j = new JackpotUpdater();
+    	j.setName("jackpotWebUpdater");
+    	j.start();
+    	return j.toString();
     }
 }

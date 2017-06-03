@@ -64,6 +64,9 @@ public class SplashModel extends Model{
 	            }			
 	            this.updateProgress(7, 7);
 	            **/
+            
+            serviceLocator.getJackpot();
+            
 	            return null;
 		}
 		 

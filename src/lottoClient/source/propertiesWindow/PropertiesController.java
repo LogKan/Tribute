@@ -27,6 +27,10 @@ public class PropertiesController {
 			view.updateTexts();
 		});
 		
+		view.fJackpot.textProperty().addListener((observable, oldValue, newValue) ->{
+			this.numberField(newValue, 10);
+		});
+		
 		view.bUpdateJackpot.setOnAction(Event -> {
 			view.fJackpot.setText(serviceLocator.getJackpot());
 		});
@@ -54,6 +58,24 @@ public class PropertiesController {
 		view.bCancel.setOnAction(Event -> {
 			view.stop();
 		});
+		
+	}
+	
+	private void numberField(String newValue, int maxNum){
+		boolean valid = false;
+		if (newValue.length() <= maxNum && newValue.matches("[0-9]+")){
+			valid = true; 
+			} else {
+				valid = false;	
+		}
+		
+		if (valid){
+			view.bSave.setDisable(false);
+			view.fJackpot.setStyle("-fx-text-fill: black;");
+		} else {
+			view.bSave.setDisable(true);
+			view.fJackpot.setStyle("-fx-text-fill: red;");
+		}
 		
 	}
 }

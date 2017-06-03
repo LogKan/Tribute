@@ -142,6 +142,8 @@ public class ClientView extends View<ClientModel> {
 		gridPaneStatus.add(this.lCashWin, 1, 5);
 		gridPaneStatus.add(this.lCashWinStatus, 2, 5);
 		gridPaneStatus.add(new Label(""), 1, 6);
+		controlPane.getChildren().add(new Label(translator.getString("program.properties.welcome")+" "+serviceLocator.getConfiguration().getOption("User")));
+		controlPane.getChildren().add(new Label(""));
 		controlPane.getChildren().add(gridPaneStatus);
 		//Play Game Button
 		this.play = new Button();
