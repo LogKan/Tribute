@@ -22,6 +22,5 @@ public class Controller {
 		model.clients.addListener((ListChangeListener) Event -> {
 			view.updateClients();
 		});
-		
 	}
 }

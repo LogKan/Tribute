@@ -5,6 +5,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.logging.Logger;
 
+import Chat.commons.ChatMsg;
+import Chat.commons.Message;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Model {
@@ -12,6 +14,7 @@ public class Model {
 	
 	private Logger logger = Logger.getLogger("");
 	private Socket socket;
+	private String name;
 	
 	public Model(){
 		
@@ -19,8 +22,22 @@ public class Model {
 	
 	public void connect(String ipAdress, int port, String name){
 		logger.info("Connect as "+name);
+		this.name = name;
 		try {
 			socket = new Socket(ipAdress, port);
+			
+			Runnable r = new Runnable() {
+				
+				@Override
+				public void run() {
+					while(true) {
+						ChatMsg msg = (ChatMsg) Message.receive(socket);
+						newestMessage.set(msg.getName()+": "+msg.getContent());
+					}
+				}
+			};
+			Thread t = new Thread(r);
+			t.start();
 		} catch (Exception e) {
 			logger.warning(e.toString());
 		}

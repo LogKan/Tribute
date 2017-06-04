@@ -5,13 +5,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Logger;
 
+import Chat.commons.ChatMsg;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Model {
 	protected ObservableList<Client> clients = FXCollections.observableArrayList();
 	
-	private Logger logger = Logger.getLogger("");
+	private final Logger logger = Logger.getLogger("");
 	private ServerSocket listener;
 	private volatile boolean stop = false;
 	
@@ -25,7 +26,7 @@ public class Model {
 					while(!stop){
 						try {
 							Socket socket = listener.accept();
-							Client client = new Client(socket);
+							Client client = new Client(Model.this, socket);
 							clients.add(client);
 						} catch (IOException e) {
 							logger.info(e.toString());
@@ -55,5 +56,12 @@ public class Model {
 	public ObservableList<Client> geClientList() {
 		logger.info("Get client list");
 		return clients;
+	}
+	
+	public void broadcast(ChatMsg outMsg) {
+		logger.info("Broadcasting message to clients");
+		for (Client c : clients) {
+			c.send(outMsg);
+		}
 	}
 }
