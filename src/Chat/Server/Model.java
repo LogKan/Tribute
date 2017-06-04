@@ -28,7 +28,7 @@ public class Model {
 							Client client = new Client(socket);
 							clients.add(client);
 						} catch (IOException e) {
-							logger.warning(e.toString());
+							logger.info(e.toString());
 						}
 					}
 				}
@@ -43,6 +43,7 @@ public class Model {
 	public void stopServer(){
 		logger.info("Stop Server");
 		for (Client c : clients) c.stop();
+		this.stop = true;
 		if (listener != null) {
 			try {
 				listener.close();
