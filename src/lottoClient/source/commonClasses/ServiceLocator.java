@@ -98,6 +98,11 @@ public class ServiceLocator {
     	JackpotUpdater j = new JackpotUpdater();
     	j.setName("jackpotWebUpdater");
     	j.start();
+    	try {
+			j.join();
+		} catch (InterruptedException e) {
+
+		}
     	return j.toString();
     }
 }
